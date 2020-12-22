@@ -1,0 +1,25 @@
+type: object
+properties:
+  code:
+    type: integer
+  statusCode:
+    type: integer
+  operationName:
+    type: string
+  parameters:
+    type: array
+    items:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+  message:
+    type: string
+  file:
+    type: string
+  line:
+    type: integer
+required:
+  - code

@@ -1,0 +1,1310 @@
+swagger: '2.0'
+info:
+  title: SoombtCloob API Specification
+  version: 2.0.0
+  description: >-
+    SoombtCloob API specification.
+    See http://swagger.io/swagger-codegen/ for more info on code generation.
+    See http://swagger.io/specification/ for Swagger OpenAPI specification.
+
+# Host is not required in the spec. Different environments (prod/dev) may use their own backend host.
+# Alternatively, different environments could use different basePaths.
+#host: backend.host:port
+host: soombtcloob-api.azurewebsites.net
+basePath: /api/
+externalDocs:
+  description: Find out more about this API.
+
+tags:
+  - name: User
+    description: User
+  
+  - name: Song
+    description: SOmgs
+
+# TODO: make the REST API available via HTTPS instead of HTTP.
+schemes:
+#  - http
+  - https
+
+paths:
+  "/Genres/":
+    post:
+      tags:
+        - Genre
+      summary: CreateGenre()
+      description: Create a Genre.
+      operationId: CreateGenre
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Genre'
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/Genre'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+    get:
+      tags:
+        - Genre
+      summary: getAllGenres()
+      description: Get All Genres.
+      operationId: getAllGenres
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Genre'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  "/Genres/{id}":
+    put:
+      tags:
+        - Genre
+      summary: UpdateGenre()
+      description: Update a Genre.
+      operationId: UpdateGenre
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+          description: ID of the Genre to get.
+          x-testValue: 5
+  
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Genre'
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/Genre'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+    get:
+      tags:
+        - Genre
+      summary: getGenreDetail()
+      description: Get a Genre.
+      operationId: getGenreDetail
+      x-permission: Genre_VIEW
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+          description: ID of the Genre to get.
+          x-testValue: 5
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            $ref: '#/definitions/Genre'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+    delete:
+      tags:
+        - Genre
+      summary: deleteGenre()
+      description: Deletes an existing Genre.
+      operationId: deleteGenre
+      x-permission: Genre_DELETE
+      x-privilege-mode: SMS
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the Genre.
+          type: integer
+          x-testValue: "{{Genres_id}}"
+      responses:
+        '204':
+          description: Successful operation
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+
+
+  "/Playlists/":
+    post:
+      tags:
+        - Playlist
+      summary: CreatePlaylist()
+      description: Create a Playlist.
+      operationId: CreatePlaylist
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Playlist'
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/Playlist'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+    get:
+      tags:
+        - Playlist
+      summary: getAllPlaylists()
+      description: Get all Playlists.
+      operationId: getAllPlaylist
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Playlist'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+  "/Playlists/{id}":
+    put:
+      tags:
+        - Playlist
+      summary: UpdatePlaylist()
+      description: Update a Playlist.
+      operationId: UpdatePlaylist
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          type: String
+          required: true
+          description: ID of the Playlist to get.
+          x-testValue: 5
+  
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Playlist'
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/Playlist'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+    get:
+      tags:
+        - Playlist
+      summary: getPlaylistDetail()
+      description: Get a Playlist.
+      operationId: getPlaylistDetail
+      x-permission: Playlist_VIEW
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          type: String
+          required: true
+          description: ID of the Playlist to get.
+          x-testValue: 5
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            $ref: '#/definitions/Playlist'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+    delete:
+      tags:
+        - Playlist
+      summary: deletePlaylist()
+      description: Deletes an existing Playlist.
+      operationId: deletePlaylist
+      x-permission: Playlist_DELETE
+      x-privilege-mode: SMS
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the Playlist.
+          type: String
+          x-testValue: "{{Playlists_id}}"
+      responses:
+        '204':
+          description: Successful operation
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  "/Playlists/{id}/add":
+    post:
+      tags:
+        - Playlist
+      summary: addSongToPlaylist()
+      description: add song to  a Playlist.
+      operationId: addSongToPlaylist
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          type: String
+          required: true
+          description: ID of the Playlist to get.
+          x-testValue: 5
+  
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Song'
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/Playlist'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  "/Playlists/{id}/remove/":
+    post:
+      tags:
+        - Playlist
+      summary: removeSongfromPlaylist()
+      description: remove song from  a Playlist.
+      operationId: removeSongfromPlaylist
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          type: String
+          required: true
+          description: ID of the Playlist to get.
+          x-testValue: 5
+  
+        - name: songId
+          in: query
+          required: true
+          description: ID of the Song to Remove.
+          type: integer
+          x-testValue: 5
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/Playlist'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+
+
+  "/Search/{query}":
+    get:
+      tags:
+        - Search
+      summary: searchAll()
+      description: search all objects all;
+      operationId: searchAll
+      produces:
+        - application/json
+      parameters:
+        - name: query
+          in: path
+          type: string
+          required: true
+          description: query of users to get
+          x-testValue: 5
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+              $ref: '#/definitions/Search'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+  "/Search/Users/{query}":
+    get:
+      tags:
+        - Search
+      summary: searchUser()
+      description: Get a Song.
+      operationId: searchUser
+      produces:
+        - application/json
+      parameters:
+        - name: query
+          in: path
+          type: string
+          required: true
+          description: query of users to get
+          x-testValue: 5
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+  "/Search/Songs/{query}":
+    get:
+      tags:
+        - Search
+      summary: searchSong()
+      description: Get a Song.
+      operationId: searchSong
+      produces:
+        - application/json
+      parameters:
+        - name: query
+          in: path
+          type: string
+          required: true
+          description: query of Songs to get
+          x-testValue: 5
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Song'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+  "/Search/Playlists/{query}":
+    get:
+      tags:
+        - Search
+      summary: searchPlaylist()
+      description: Get a Playlist.
+      operationId: searchPlaylist
+      produces:
+        - application/json
+      parameters:
+        - name: query
+          in: path
+          type: string
+          required: true
+          description: query of Songs to get
+          x-testValue: 5
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Playlist'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+
+
+  "/Songs/":
+    post:
+      tags:
+        - Song
+      summary: CreateSong()
+      security:
+        - Bearer: [ ]
+      description: Create a Song.
+      operationId: CreateSong
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Song'
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            type: array
+            items:
+                $ref: '#/definitions/Song'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+    get:
+      tags:
+        - Song
+      summary: getAllSongs()
+      description: Gets all Songs.
+      operationId: getAllSongs
+      x-permission: Song_VIEW
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Song'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  "/Songs/{id}":
+    put:
+      tags:
+        - Song
+      summary: UpdateSong()
+      description: Update a Song.
+      operationId: UpdateSong
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: ID of the Song to get.
+          x-testValue: 5
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Song'
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/Song'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+    get:
+      tags:
+        - Song
+      summary: getSongDetail()
+      description: Get a Song.
+      operationId: getSongDetail
+      x-permission: Song_VIEW
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: ID of the Song to get.
+          x-testValue: 5
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            $ref: '#/definitions/Song'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+    delete:
+      tags:
+        - Song
+      summary: deleteSong()
+      description: Deletes an existing Song.
+      operationId: deleteSong
+      x-permission: Song_DELETE
+      x-privilege-mode: SMS
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the Song.
+          type: string
+          x-testValue: "{{Songs_id}}"
+      responses:
+        '204':
+          description: Successful operation
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+  "/Songs/reccomendations":
+    get:
+      tags:
+        - Song
+      summary: getSongRecomendations()
+      description: Get a Song.
+      operationId: getSongRecomendations
+      x-permission: Song_VIEW
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: query
+          type: String
+          description: ID of the Song to get.
+          x-testValue: 5
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Song'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+  "/Songs/{id}/listend":
+    post:
+      tags:
+        - Song
+      summary: AddListend
+      description: tellTheBackendnYouListendToASong
+      operationId: AddListend
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: ID of the Song to get.
+          x-testValue: 5
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+
+
+  "/Users/":
+    get:
+      tags:
+        - User
+      summary: getAllUsers()
+      description: Get all Users.
+      operationId: getAllUsers
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  "/Users/{id}":
+    get:
+      tags:
+        - User
+      summary: getUserDetail()
+      description: Get a User.
+      operationId: getUserDetail
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+          description: ID of the User to get.
+          x-testValue: 5
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            $ref: '#/definitions/User'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+    delete:
+      tags:
+        - User
+      summary: deleteUser()
+      description: Deletes an existing User.
+      operationId: deleteUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the User.
+          type: integer
+          x-testValue: "{{Users_id}}"
+      responses:
+        '204':
+          description: Successful operation
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+    put:
+      tags:
+        - User
+      summary: EditUser()
+      description: Edit a User.
+      operationId: EditUser
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the User.
+          type: integer
+          x-testValue: "{{Users_id}}"
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/User'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+  "/Users/register":
+    post:
+      tags:
+        - User
+      summary: RegisterUser()
+      description: Register a User.
+      operationId: RegisterUser
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Successful operation
+          schema: String
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+  "/Users/login":
+    post:
+      tags:
+        - User
+      summary: LoginUser()
+      description: Log a User In.
+      operationId: LoginUser
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Login'
+      responses:
+        '200':
+          description: Successful operation
+          schema: String
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+  "/Users/follow":
+    post:
+      tags:
+        - User
+      summary: FollowUser()
+      description: Log a User In.
+      operationId: FollowUser
+      consumes:
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Follow'
+      responses:
+        '200':
+          description: Successful operation
+          schema: String
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+  "/Users/unfollow":
+    post:
+      tags:
+        - User
+      summary: FollowUser()
+      description: Unfollow a User
+      operationId: FollowUser
+      consumes:
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Follow'
+      responses:
+        '200':
+          description: Successful operation
+          schema: String
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+  "/Users/follow/suggest":
+    get:
+      tags:
+        - User
+      summary: getFollowSugestions()
+      description: sugest users to follow
+      operationId: getFollowSugestions
+      consumes:
+        - application/json
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+
+
+
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+
+security:
+  - Bearer: []
+
+# Here we define all the objects that are passed by the API. The Spac API Client will instantiate the domain objects (also for properties) if they exist (if not, you'll get a generic stdClass object with the properties).
+# The definitions should be ordered alphabetically, in order to make the docs more readable
+definitions:
+
+
+  ApiException:
+    type: object
+    properties:
+      code:
+        type: integer
+      statusCode:
+        type: integer
+      operationName:
+        type: string
+      parameters:
+        type: array
+        items:
+          type: object
+          properties:
+            key:
+              type: string
+            value:
+              type: string
+      message:
+        type: string
+      file:
+        type: string
+      line:
+        type: integer
+    required:
+      - code
+
+  BadRequestApiException:
+    allOf:
+    - $ref: '#/definitions/ApiException'
+    # No other properties!
+
+  NotFoundApiException:
+    allOf:
+    - $ref: '#/definitions/ApiException'
+    # No other properties!
+
+  User:
+    type: object
+    properties:
+      _id:
+        type: string
+      name:
+        type: string
+      email:
+        type: string
+        format: email
+      birthdate:
+        type: string
+      password:
+        type: string
+        minLength: 5
+      following:
+        type: array
+        items:
+          $ref: "#/definitions/User"
+      followers:
+        type: array
+        items:
+          $ref: "#/definitions/User"
+    
+    # If you add a new property that's required, add it to the x-testBody property of the according post call
+    required:
+      - name
+      - email
+      - birthdate
+      - password
+    # master comment. hope last one
+
+
+  Genre:
+    type: object
+    properties:
+      _id:
+        type: string
+      name:
+        type: string
+    
+    # If you add a new property that's required, add it to the x-testBody property of the according post call
+    required:
+      - name
+    # master comment. hope last one
+
+
+  Song:
+    type: object
+    properties:
+      _id:
+        type: string
+      title:
+        type: string
+        minLength: 5
+        x-swagger-mongoose:
+          index:
+            unique: 'true'
+      description:
+        type: string
+      cover:
+        type: string
+      file:
+        type: string
+      comments:
+        type: array
+        items:
+          $ref: "#/definitions/Comment"
+      artists:
+        type: array
+        items:
+          $ref: "#/definitions/User"
+      genres:
+        type: array
+        items:
+          $ref: "#/definitions/Genre"
+    
+    required:
+      - name
+      - description
+      - artists
+      - genres
+      - cover
+      - file
+    # master comment. hope last one
+
+
+  Playlist:
+    type: object
+    properties:
+      _id:
+        type: string
+      title:
+        type: string
+        minLength: 5
+      description:
+        type: string
+      author:
+        $ref: "#/definitions/User"
+      songs:
+        type: array
+        items:
+          $ref: "#/definitions/Song"
+    
+    # If you add a new property that's required, add it to the x-testBody property of the according post call
+    required:
+      - name
+      - author
+    # master comment. hope last one
+
+
+  Comment:
+    type: object
+    x-permission-required:
+    #  - DEVICE_EDIT
+    #  - DEVICE_CREATE
+    properties:
+      _id:
+        type: string
+      title:
+        type: string
+        minLength: 10
+      description:
+        type: string
+      user:
+        $ref: "#/definitions/User"
+    
+    # If you add a new property that's required, add it to the x-testBody property of the according post call
+    required:
+      - name
+      - locationId
+      - agreementId
+      - deviceTypeName
+    # master comment. hope last one
+
+
+  Login:
+    type: object
+    properties:
+      email:
+        type: string
+        format: email
+      password:
+        type: string
+    
+    # If you add a new property that's required, add it to the x-testBody property of the according post call
+    required:
+      - email
+      - password
+    # master comment. hope last one
+
+
+  Search:
+    type: object
+    properties:
+      songs:
+        type: array
+        items:
+          $ref: "#/definitions/Song"
+      playlists:
+        type: array
+        items:
+          $ref: "#/definitions/Playlist"
+      users:
+        type: array
+        items:
+          $ref: "#/definitions/User"
+
+
+  Follow:
+    type: object
+    properties:
+      followingId:
+        type: string
+      followedId:
+        type: string
+    
+    # If you add a new property that's required, add it to the x-testBody property of the according post call
+    required:
+      - name
+      - email
+    # master comment. hope last one

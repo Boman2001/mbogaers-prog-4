@@ -1,0 +1,178 @@
+"/Meals/{id}":
+  get:
+    tags:
+      - Meal
+    summary: getMealDetail()
+    description: Get a Meal.
+    operationId: getMealDetail
+    produces:
+      - application/json
+    parameters:
+      - name: id
+        in: path
+        type: integer
+        required: true
+        description: ID of the Meal to get.
+        x-testValue: 5
+    responses:
+      '200':
+        description: Successful operation.
+        schema:
+          $ref: '#/definitions/Meal'
+      '400':
+        description: Bad request or parameters
+        schema:
+          $ref: '#/definitions/BadRequestApiException'
+      '404':
+        description: Resource not found
+        schema:
+          $ref: '#/definitions/NotFoundApiException'
+      default:
+        description: Unexpected error
+        schema:
+          $ref: '#/definitions/ApiException'
+
+"/dormatories/{dormId}/meal":
+  post:
+    tags:
+      - Meal
+    summary: createMeal
+    description: create a Meal for a Dorm
+    operationId: createMeal
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - name: dormId
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Meal'
+    responses:
+      '200':
+        description: Successful operation
+        schema:
+          $ref: '#/definitions/Dorm'
+      '400':
+        description: Bad request or parameters
+        schema:
+          $ref: '#/definitions/BadRequestApiException'
+      default:
+        description: Unexpected error
+        schema:
+          $ref: '#/definitions/ApiException'
+
+  get:
+    tags:
+      - Meal
+    summary: getMealOverview()
+    description: Get a Meal.
+    operationId: getMealOverview
+    produces:
+      - application/json
+    parameters:
+      - name: dormId
+        in: path
+        required: true
+        schema:
+          type: integer
+    responses:
+      '200':
+        description: Successful operation.
+        schema:
+          $ref: '#/definitions/Meal'
+      '400':
+        description: Bad request or parameters
+        schema:
+          $ref: '#/definitions/BadRequestApiException'
+      '404':
+        description: Resource not found
+        schema:
+          $ref: '#/definitions/NotFoundApiException'
+      default:
+        description: Unexpected error
+        schema:
+          $ref: '#/definitions/ApiException'
+
+"/dormatories/{dormId}/meal/{mealId}":
+  get:
+    tags:
+      - Meal
+    summary: editMealOverview()
+    description: Get a Meal.
+    operationId: getMealOverview
+    produces:
+      - application/json
+    parameters:
+      - name: dormId
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: mealid
+        in: path
+        type: integer
+        required: true
+        description: ID of the Meal to get.
+        x-testValue: 5
+    responses:
+      '200':
+        description: Successful operation.
+        schema:
+          $ref: '#/definitions/Meal'
+      '400':
+        description: Bad request or parameters
+        schema:
+          $ref: '#/definitions/BadRequestApiException'
+      '404':
+        description: Resource not found
+        schema:
+          $ref: '#/definitions/NotFoundApiException'
+      default:
+        description: Unexpected error
+        schema:
+          $ref: '#/definitions/ApiException'
+
+  put:
+    tags:
+      - Meal
+    summary: editMealOverview()
+    description: Get a Meal.
+    operationId: getMealOverview
+    produces:
+      - application/json
+    parameters:
+      - name: dormId
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: mealid
+        in: path
+        type: integer
+        required: true
+        description: ID of the Meal to get.
+        x-testValue: 5
+    responses:
+      '200':
+        description: Successful operation.
+        schema:
+          $ref: '#/definitions/Meal'
+      '400':
+        description: Bad request or parameters
+        schema:
+          $ref: '#/definitions/BadRequestApiException'
+      '404':
+        description: Resource not found
+        schema:
+          $ref: '#/definitions/NotFoundApiException'
+      default:
+        description: Unexpected error
+        schema:
+          $ref: '#/definitions/ApiException'

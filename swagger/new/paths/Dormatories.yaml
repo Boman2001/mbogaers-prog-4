@@ -1,0 +1,167 @@
+"/dormatories/":
+  get:
+    tags:
+      - Dorm
+    summary: getAllDorm()
+    description: Get all Dorms.
+    operationId: getAllDorm
+    produces:
+      - application/json
+    parameters:
+      - name: name
+        in: query
+        type: string
+        description: name of dormatory
+      - name: city
+        in: query
+        type: string
+        description: place of dormatory
+    responses:
+      '200':
+        description: Successful operation.
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/Dorm'
+      '400':
+        description: Bad request or parameters
+        schema:
+          $ref: '#/definitions/BadRequestApiException'
+      '404':
+        description: Resource not found
+        schema:
+          $ref: '#/definitions/NotFoundApiException'
+      default:
+        description: Unexpected error
+        schema:
+          $ref: '#/definitions/ApiException'
+"/dormatories/{id}":
+  get:
+    tags:
+      - Dorm
+    summary: getDormDetail()
+    description: Get a Dorm.
+    operationId: getDormDetail
+    produces:
+      - application/json
+    parameters:
+      - name: id
+        in: path
+        type: integer
+        required: true
+        description: ID of the Dorm to get.
+        x-testValue: 5
+    responses:
+      '200':
+        description: Successful operation.
+        schema:
+          $ref: '#/definitions/Dorm'
+      '400':
+        description: Bad request or parameters
+        schema:
+          $ref: '#/definitions/BadRequestApiException'
+      '404':
+        description: Resource not found
+        schema:
+          $ref: '#/definitions/NotFoundApiException'
+      default:
+        description: Unexpected error
+        schema:
+          $ref: '#/definitions/ApiException'
+
+  delete:
+    tags:
+      - Dorm
+    summary: deleteDorm()
+    description: Deletes an existing Dorm.
+    operationId: deleteDorm
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: The ID of the Dorm.
+        type: integer
+        x-testValue: "{{Dorms_id}}"
+    responses:
+      '204':
+        description: Successful operation
+          $ref: '#/definitions/Dorm'
+      '400':
+        description: Bad request or parameters
+        schema:
+          $ref: '#/definitions/BadRequestApiException'
+      '404':
+        description: Resource not found
+        schema:
+          $ref: '#/definitions/NotFoundApiException'
+      default:
+        description: Unexpected error
+        schema:
+          $ref: '#/definitions/ApiException'
+  put:
+    tags:
+      - Dorm
+    summary: EditDorm()
+    description: Edit a Dorm.
+    operationId: EditDorm
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: The ID of the Dorm.
+        type: integer
+        x-testValue: "{{Dorms_id}}"
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Dorm'
+    responses:
+      '200':
+        description: Successful operation
+        schema:
+          $ref: '#/definitions/Dorm'
+      '400':
+        description: Bad request or parameters
+        schema:
+          $ref: '#/definitions/BadRequestApiException'
+      default:
+        description: Unexpected error
+        schema:
+          $ref: '#/definitions/ApiException'
+
+"/dormatories/{id}/user":
+  post:
+    tags:
+      - Dorm
+    summary: RegisterToDorm()
+    description: Register to a Dorm.
+    operationId: RegisterToDorm
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Dorm'
+    responses:
+      '200':
+        description: Successful operation
+        schema:
+          $ref: '#/definitions/Dorm'
+      '400':
+        description: Bad request or parameters
+        schema:
+          $ref: '#/definitions/BadRequestApiException'
+      default:
+        description: Unexpected error
+        schema:
+          $ref: '#/definitions/ApiException'
+

@@ -1,0 +1,9 @@
+$ref: \paths\Genres.yaml
+
+$ref: \paths\Playlists.yaml
+
+$ref: \paths\Search.yaml
+
+$ref: \paths\Songs.yaml
+
+$ref: \paths\Users.yaml
