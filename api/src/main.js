@@ -1,19 +1,17 @@
 #!/usr/bin/env node
-
 /**
  * Module dependencies.
  */
-const app = require('api');
+const app = require('./api');
 const http = require('http');
-const config = require('../lib/config');
-const logger = require('../lib/logger');
 
-const log = logger(config.logger);
+
+
 
 /**
  * Get port from environment and store in Express.
  */
-const port = normalizePort(config.api.port || '3000');
+const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
@@ -60,11 +58,11 @@ function onError (error) {
   // handle specific listen errors with friendly messages
   switch (error.code) {
   case 'EACCES':
-    log.fatal(`${bind} requires elevated privileges`);
+    console.log(`${bind} requires elevated privileges`);
     process.exit(1);
     break;
   case 'EADDRINUSE':
-    log.fatal(`${bind} is already in use`);
+    console.log(`${bind} is already in use`);
     process.exit(1);
     break;
   default:
@@ -78,5 +76,5 @@ function onError (error) {
 function onListening () {
   const addr = server.address();
   const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
-  log.debug(`Listening on ${bind}`);
+  console.log(`Listening on ${bind}`);
 }
