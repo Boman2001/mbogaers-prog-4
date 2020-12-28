@@ -20,16 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c9a2996-f755-4919-ae3f-555c5d3d00f5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/api/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/api/routes/Playlists.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/routes/Playlists.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/api/routes/Search.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/routes/Search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/api/routes/Songs.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/routes/Songs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/api/routes/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/routes/Users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/api/services/Playlists.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/Playlists.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/api/services/Search.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/Search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/api/services/Songs.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/Songs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/api/services/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/Users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +61,7 @@
       <workItem from="1608713126845" duration="38000" />
       <workItem from="1608713397471" duration="378000" />
       <workItem from="1608713792907" duration="593000" />
-      <workItem from="1609153202380" duration="3487000" />
+      <workItem from="1609153202380" duration="4749000" />
     </task>
     <servers />
   </component>
