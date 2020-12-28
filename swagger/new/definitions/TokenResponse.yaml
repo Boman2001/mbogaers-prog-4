@@ -1,0 +1,9 @@
+type: object
+properties:
+  firstname:
+    type: string
+  lastname:
+    type: string
+  token:
+    type: string
+

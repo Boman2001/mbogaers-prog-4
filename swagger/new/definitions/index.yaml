@@ -16,3 +16,5 @@ Meal:
   $ref: \definitions\Meal.yaml
 Dorm:
   $ref: \definitions\Dorm.yaml
+Token:
+  $ref: \definitions\TokenResponse.yaml

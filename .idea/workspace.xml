@@ -20,14 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c9a2996-f755-4919-ae3f-555c5d3d00f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/swagger/new/paths/Participants.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/swagger/new/definitions/TokenResponse.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swagger/mergeswagger.sh" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/mergeswagger.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swagger/new/definitions/index.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/new/definitions/index.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swagger/new/index.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/new/index.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swagger/new/paths/Dormatories.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/new/paths/Dormatories.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swagger/new/paths/Meals.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/new/paths/Meals.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swagger/new/paths/Users.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/new/paths/Users.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swagger/new/paths/index.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/new/paths/index.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swagger/new/tags/index.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/new/tags/index.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swagger/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/swagger.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swagger/swagger.yaml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +62,7 @@
       <workItem from="1608713126845" duration="38000" />
       <workItem from="1608713397471" duration="378000" />
       <workItem from="1608713792907" duration="593000" />
-      <workItem from="1609153202380" duration="1444000" />
+      <workItem from="1609153202380" duration="3214000" />
     </task>
     <servers />
   </component>

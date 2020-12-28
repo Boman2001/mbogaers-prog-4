@@ -80,8 +80,7 @@
       - name: dormId
         in: path
         required: true
-        schema:
-          type: integer
+        type: integer
     responses:
       '200':
         description: Successful operation.
@@ -115,7 +114,7 @@
         required: true
         schema:
           type: integer
-      - name: mealid
+      - name: mealId
         in: path
         type: integer
         required: true
@@ -153,7 +152,7 @@
         required: true
         schema:
           type: integer
-      - name: mealid
+      - name: mealId
         in: path
         type: integer
         required: true
@@ -190,7 +189,7 @@
         required: true
         schema:
           type: integer
-      - name: mealid
+      - name: mealId
         in: path
         type: integer
         required: true

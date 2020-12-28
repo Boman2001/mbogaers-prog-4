@@ -175,7 +175,7 @@
     responses:
       '200':
         description: Successful operation
-        schema: String
+        schema: '#/definitions/Token'
       '400':
         description: Bad request or parameters
         schema:

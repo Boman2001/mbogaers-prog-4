@@ -2,9 +2,9 @@
 
 head -n2 "new/index.yaml" > "swagger.yaml"
 sed 's/^/  /' "new/info/index.yaml" >> "swagger.yaml"
-head -n13 "new/index.yaml" | tail -n+4 >> "swagger.yaml"
+head -n14 "new/index.yaml" | tail -n+3 >> "swagger.yaml"
 sed 's/^/  /' "new/tags/index.yaml" >> "swagger.yaml"
-head -n21 "new/index.yaml" | tail -n+15 >> "swagger.yaml"
+head -n22 "new/index.yaml" | tail -n+15 >> "swagger.yaml"
 
 while read PAD; do
   echo "$PAD"
