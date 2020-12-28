@@ -1,4 +1,5 @@
 const ServerError = require('../lib/error');
+const Dorm = require('../repositories/sequalize').models.studenthome;
 /**
  * @param {Object} options
  * @param {String} options.name name of dormatory
