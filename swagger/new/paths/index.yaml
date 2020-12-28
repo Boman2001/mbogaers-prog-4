@@ -1,9 +1,8 @@
-$ref: \paths\Genres.yaml
+$ref: \paths\Dormatories.yaml
 
-$ref: \paths\Playlists.yaml
+$ref: \paths\Meals.yaml
 
-$ref: \paths\Search.yaml
-
-$ref: \paths\Songs.yaml
+$ref: \paths\Participants.yaml
 
 $ref: \paths\Users.yaml
+

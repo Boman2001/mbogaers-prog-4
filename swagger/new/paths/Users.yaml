@@ -26,6 +26,7 @@
         description: Unexpected error
         schema:
           $ref: '#/definitions/ApiException'
+
 "/Users/{id}":
   get:
     tags:
@@ -183,3 +184,4 @@
         description: Unexpected error
         schema:
           $ref: '#/definitions/ApiException'
+
