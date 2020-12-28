@@ -2,10 +2,10 @@
 /**
  * Module dependencies.
  */
+require('dotenv').config()
 const app = require('./api');
 const http = require('http');
-
-
+const sequelize = require('./repositories/sequalize').database;
 
 
 /**
@@ -30,16 +30,16 @@ server.on('listening', onListening);
  * Normalize a port into a number, string, or false.
  */
 function normalizePort (val) {
-  const port = parseInt(val, 10);
+  const normport = parseInt(val, 10);
 
-  if (isNaN(port)) {
+  if (isNaN(normport)) {
     // named pipe
     return val;
   }
 
-  if (port >= 0) {
+  if (normport >= 0) {
     // port number
-    return port;
+    return normport;
   }
 
   return false;
@@ -73,8 +73,14 @@ function onError (error) {
 /**
  * Event listener for HTTP server "listening" event.
  */
-function onListening () {
+async function onListening() {
   const addr = server.address();
   const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
   console.log(`Listening on ${bind}`);
+  try {
+    await sequelize.authenticate();
+    console.log('Connection has been established successfully.');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
 }

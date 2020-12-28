@@ -20,9 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c9a2996-f755-4919-ae3f-555c5d3d00f5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/.env.development" beforeDir="false" afterPath="$PROJECT_DIR$/api/.env.development" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/api/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +53,18 @@
       <recent name="C:\School\p2.2\mbogaers-prog-4\api\src" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/api/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -64,6 +78,7 @@
       <workItem from="1608713397471" duration="378000" />
       <workItem from="1608713792907" duration="593000" />
       <workItem from="1609153202380" duration="6740000" />
+      <workItem from="1609163116041" duration="2953000" />
     </task>
     <servers />
   </component>
@@ -80,8 +95,29 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="314" y="358" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609164660897">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="314" y="358" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609164660897" />
+    <state width="1674" height="400" key="GridCell.Tab.0.bottom" timestamp="1609164940323">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="400" key="GridCell.Tab.0.bottom/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609164940323" />
+    <state width="1674" height="400" key="GridCell.Tab.0.center" timestamp="1609164940323">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="400" key="GridCell.Tab.0.center/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609164940323" />
+    <state width="1674" height="400" key="GridCell.Tab.0.left" timestamp="1609164940323">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="400" key="GridCell.Tab.0.left/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609164940323" />
+    <state width="1674" height="400" key="GridCell.Tab.0.right" timestamp="1609164940323">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="400" key="GridCell.Tab.0.right/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609164940323" />
     <state x="1029" y="207" key="SettingsEditor" timestamp="1608713768405">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
