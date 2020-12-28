@@ -1,0 +1,18 @@
+# Exceptions
+ApiException:
+  $ref: \definitions\api_exception.yaml
+
+BadRequestApiException:
+  $ref: \definitions\bad_request_api_exception.yaml
+
+NotFoundApiException:
+  $ref: \definitions\not_found_exception.yaml
+# Models
+User:
+  $ref: \definitions\User.yaml
+Login:
+  $ref: \definitions\Login.yaml
+Meal:
+  $ref: \definitions\Meal.yaml
+Dorm:
+  $ref: \definitions\Dorm.yaml

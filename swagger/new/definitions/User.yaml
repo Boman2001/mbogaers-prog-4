@@ -1,0 +1,25 @@
+type: object
+properties:
+  id:
+    type: string
+  firstname:
+    type: string
+  lastname:
+    type: string
+  studentnumber:
+    type: string
+  email:
+    type: string
+    format: email
+  password:
+    type: string
+    minLength: 5
+
+# If you add a new property that's required, add it to the x-testBody property of the according post call
+required:
+  - firstname
+  - lastname
+  - email
+  - studentnumber
+  - password
+# master comment. hope last one

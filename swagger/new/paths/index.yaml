@@ -1,0 +1,8 @@
+$ref: \paths\Dormatories.yaml
+
+$ref: \paths\Meals.yaml
+
+$ref: \paths\Participants.yaml
+
+$ref: \paths\Users.yaml
+
