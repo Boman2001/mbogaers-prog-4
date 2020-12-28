@@ -7,12 +7,14 @@ info:
     See http://swagger.io/swagger-codegen/ for more info on code generation.
     See http://swagger.io/specification/ for Swagger OpenAPI specification.
 
+
 # Host is not required in the spec. Different environments (prod/dev) may use their own backend host.
 # Alternatively, different environments could use different basePaths.
 #host: backend.host:port
 host: sameneten.azurewebsites.net
 basePath: /api/
 externalDocs:
+  url: sameneten.azurewebsites.net
   description: Find out more about this API.
 
 tags:
@@ -27,6 +29,7 @@ tags:
   
   - name: Dormatory
     description: student homes
+
 
 # TODO: make the REST API available via HTTPS instead of HTTP.
 schemes:
@@ -121,6 +124,7 @@ paths:
       responses:
         '204':
           description: Successful operation
+          schema:
             $ref: '#/definitions/Dorm'
         '400':
           description: Bad request or parameters
@@ -182,6 +186,12 @@ paths:
       produces:
         - application/json
       parameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+          description: name of dormatory
+  
         - name: body
           in: body
           required: true
@@ -285,8 +295,7 @@ paths:
         - name: dormId
           in: path
           required: true
-          schema:
-            type: integer
+          type: integer
       responses:
         '200':
           description: Successful operation.
@@ -320,7 +329,7 @@ paths:
           required: true
           schema:
             type: integer
-        - name: mealid
+        - name: mealId
           in: path
           type: integer
           required: true
@@ -358,7 +367,7 @@ paths:
           required: true
           schema:
             type: integer
-        - name: mealid
+        - name: mealId
           in: path
           type: integer
           required: true
@@ -395,7 +404,7 @@ paths:
           required: true
           schema:
             type: integer
-        - name: mealid
+        - name: mealId
           in: path
           type: integer
           required: true
@@ -754,7 +763,7 @@ paths:
       responses:
         '200':
           description: Successful operation
-          schema: String
+          schema: '#/definitions/Token'
         '400':
           description: Bad request or parameters
           schema:
@@ -763,8 +772,6 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/ApiException'
-  
-
 
 
 securityDefinitions:
@@ -777,7 +784,6 @@ security:
   - Bearer: []
 
 # Here we define all the objects that are passed by the API. The Spac API Client will instantiate the domain objects (also for properties) if they exist (if not, you'll get a generic stdClass object with the properties).
-# The definitions should be ordered alphabetically, in order to make the docs more readable
 definitions:
 
 
@@ -924,3 +930,15 @@ definitions:
       - streetnumber
       - phonenumber
     # master comment. hope last one
+
+
+  Token:
+    type: object
+    properties:
+      firstname:
+        type: string
+      lastname:
+        type: string
+      token:
+        type: string
+    

@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  $ref: \info\index.yaml
+
 
 # Host is not required in the spec. Different environments (prod/dev) may use their own backend host.
 # Alternatively, different environments could use different basePaths.
@@ -8,10 +8,11 @@ info:
 host: sameneten.azurewebsites.net
 basePath: /api/
 externalDocs:
+  url: sameneten.azurewebsites.net
   description: Find out more about this API.
 
 tags:
-  $ref: \tags\index.yaml
+
 
 # TODO: make the REST API available via HTTPS instead of HTTP.
 schemes:
@@ -31,6 +32,5 @@ security:
   - Bearer: []
 
 # Here we define all the objects that are passed by the API. The Spac API Client will instantiate the domain objects (also for properties) if they exist (if not, you'll get a generic stdClass object with the properties).
-# The definitions should be ordered alphabetically, in order to make the docs more readable
 definitions:
   $ref: \definitions\index.yaml
