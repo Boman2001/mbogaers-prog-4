@@ -1,19 +1,17 @@
 #!/usr/bin/env node
-
 /**
  * Module dependencies.
  */
-const app = require('api');
+require('dotenv').config()
+const app = require('./api');
 const http = require('http');
-const config = require('../lib/config');
-const logger = require('../lib/logger');
+const sequelize = require('./repositories/sequalize').database;
 
-const log = logger(config.logger);
 
 /**
  * Get port from environment and store in Express.
  */
-const port = normalizePort(config.api.port || '3000');
+const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
@@ -32,16 +30,16 @@ server.on('listening', onListening);
  * Normalize a port into a number, string, or false.
  */
 function normalizePort (val) {
-  const port = parseInt(val, 10);
+  const normport = parseInt(val, 10);
 
-  if (isNaN(port)) {
+  if (isNaN(normport)) {
     // named pipe
     return val;
   }
 
-  if (port >= 0) {
+  if (normport >= 0) {
     // port number
-    return port;
+    return normport;
   }
 
   return false;
@@ -60,11 +58,11 @@ function onError (error) {
   // handle specific listen errors with friendly messages
   switch (error.code) {
   case 'EACCES':
-    log.fatal(`${bind} requires elevated privileges`);
+    console.log(`${bind} requires elevated privileges`);
     process.exit(1);
     break;
   case 'EADDRINUSE':
-    log.fatal(`${bind} is already in use`);
+    console.log(`${bind} is already in use`);
     process.exit(1);
     break;
   default:
@@ -75,8 +73,14 @@ function onError (error) {
 /**
  * Event listener for HTTP server "listening" event.
  */
-function onListening () {
+async function onListening() {
   const addr = server.address();
   const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
-  log.debug(`Listening on ${bind}`);
+  console.log(`Listening on ${bind}`);
+  try {
+    await sequelize.authenticate();
+    console.log('Connection has been established successfully.');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
 }

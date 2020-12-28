@@ -429,7 +429,7 @@ paths:
             $ref: '#/definitions/ApiException'
 
 
-  "/meal/{mealId}/participants":
+  "/Meals{mealId}/participants":
     post:
       tags:
         - Participant
@@ -544,7 +544,7 @@ paths:
           schema:
             $ref: '#/definitions/ApiException'
   
-  "/meal/{mealId}/participants/{participantId}":
+  "/Meals/{mealId}/participants/{participantId}":
     get:
       tags:
         - Participant
