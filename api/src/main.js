@@ -3,7 +3,7 @@
 /**
  * Module dependencies.
  */
-const app = require('../api');
+const app = require('api');
 const http = require('http');
 const config = require('../lib/config');
 const logger = require('../lib/logger');
