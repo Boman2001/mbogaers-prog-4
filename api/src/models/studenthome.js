@@ -1,43 +1,51 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('studenthome', {
-    ID: {
+    id: {
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      field: 'ID'
     },
-    Name: {
+    name: {
       type: DataTypes.STRING(32),
-      allowNull: false
+      allowNull: false,
+      field: 'Name'
     },
-    Address: {
+    address: {
       type: DataTypes.STRING(32),
-      allowNull: false
+      allowNull: false,
+      field: 'Address'
     },
-    House_Nr: {
+    houseNr: {
       type: DataTypes.INTEGER.UNSIGNED,
-      allowNull: false
+      allowNull: false,
+      field: 'House_Nr'
     },
-    UserID: {
+    userId: {
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
       references: {
         model: 'user',
         key: 'ID'
-      }
+      },
+      field: 'UserID'
     },
-    Postal_Code: {
+    postalCode: {
       type: DataTypes.STRING(256),
-      allowNull: false
+      allowNull: false,
+      field: 'Postal_Code'
     },
-    Telephone: {
+    telephone: {
       type: DataTypes.STRING(256),
-      allowNull: false
+      allowNull: false,
+      field: 'Telephone'
     },
-    City: {
+    city: {
       type: DataTypes.STRING(256),
-      allowNull: false
+      allowNull: false,
+      field: 'City'
     }
   }, {
     sequelize,

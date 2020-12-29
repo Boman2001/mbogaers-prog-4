@@ -10,21 +10,21 @@ function initModels(sequelize) {
   var studenthome = _studenthome(sequelize, DataTypes);
   var user = _user(sequelize, DataTypes);
 
-  studenthome.belongsToMany(user, { through: participants, foreignKey: "StudenthomeID", otherKey: "UserID" });
-  user.belongsToMany(studenthome, { through: participants, foreignKey: "UserID", otherKey: "StudenthomeID" });
-  user.belongsToMany(meal, { through: participants, foreignKey: "UserID", otherKey: "MealID" });
-  meal.belongsTo(user, { foreignKey: "UserID"});
-  user.hasMany(meal, { foreignKey: "UserID"});
-  meal.belongsTo(studenthome, { foreignKey: "StudenthomeID"});
-  studenthome.hasMany(meal, { foreignKey: "StudenthomeID"});
-  participants.belongsTo(user, { foreignKey: "UserID"});
-  user.hasMany(participants, { foreignKey: "UserID"});
-  participants.belongsTo(studenthome, { foreignKey: "StudenthomeID"});
-  studenthome.hasMany(participants, { foreignKey: "StudenthomeID"});
-  participants.belongsTo(meal, { foreignKey: "MealID"});
-  meal.hasMany(participants, { foreignKey: "MealID"});
-  studenthome.belongsTo(user, { foreignKey: "UserID"});
-  user.hasMany(studenthome, { foreignKey: "UserID"});
+  studenthome.belongsToMany(user, { through: participants, foreignKey: "studenthomeId", otherKey: "userId" });
+  user.belongsToMany(studenthome, { through: participants, foreignKey: "userId", otherKey: "studenthomeId" });
+  user.belongsToMany(meal, { through: participants, foreignKey: "userId", otherKey: "mealId" });
+  meal.belongsTo(user, { foreignKey: "userId"});
+  user.hasMany(meal, { foreignKey: "userId"});
+  meal.belongsTo(studenthome, { foreignKey: "studenthomeId"});
+  studenthome.hasMany(meal, { foreignKey: "studenthomeId"});
+  participants.belongsTo(user, { foreignKey: "userId"});
+  user.hasMany(participants, { foreignKey: "userId"});
+  participants.belongsTo(studenthome, { foreignKey: "studenthomeId"});
+  studenthome.hasMany(participants, { foreignKey: "studenthomeId"});
+  participants.belongsTo(meal, { foreignKey: "mealId"});
+  meal.hasMany(participants, { foreignKey: "mealId"});
+  studenthome.belongsTo(user, { foreignKey: "userId"});
+  user.hasMany(studenthome, { foreignKey: "userId"});
 
   return {
     meal,

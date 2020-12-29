@@ -2,11 +2,11 @@ type: object
 properties:
   id:
     type: string
-  firstname:
+  firstName:
     type: string
-  lastname:
+  lastName:
     type: string
-  studentnumber:
+  studentNumber:
     type: string
   email:
     type: string

@@ -1,36 +1,40 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('participants', {
-    UserID: {
+    userId: {
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
       primaryKey: true,
       references: {
         model: 'user',
         key: 'ID'
-      }
+      },
+      field: 'UserID'
     },
-    StudenthomeID: {
+    studenthomeId: {
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
       primaryKey: true,
       references: {
         model: 'studenthome',
         key: 'ID'
-      }
+      },
+      field: 'StudenthomeID'
     },
-    MealID: {
+    mealId: {
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
       primaryKey: true,
       references: {
         model: 'meal',
         key: 'ID'
-      }
+      },
+      field: 'MealID'
     },
-    SignedUpOn: {
+    signedUpOn: {
       type: DataTypes.DATEONLY,
-      allowNull: false
+      allowNull: false,
+      field: 'SignedUpOn'
     }
   }, {
     sequelize,

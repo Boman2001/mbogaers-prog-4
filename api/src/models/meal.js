@@ -1,59 +1,70 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('meal', {
-    ID: {
+    id: {
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      field: 'ID'
     },
-    Name: {
+    name: {
       type: DataTypes.STRING(32),
-      allowNull: false
+      allowNull: false,
+      field: 'Name'
     },
-    Description: {
+    description: {
       type: DataTypes.STRING(64),
-      allowNull: false
+      allowNull: false,
+      field: 'Description'
     },
-    Ingredients: {
+    ingredients: {
       type: DataTypes.STRING(64),
-      allowNull: false
+      allowNull: false,
+      field: 'Ingredients'
     },
-    Allergies: {
+    allergies: {
       type: DataTypes.STRING(32),
-      allowNull: false
+      allowNull: false,
+      field: 'Allergies'
     },
-    CreatedOn: {
+    createdOn: {
       type: DataTypes.DATEONLY,
-      allowNull: false
+      allowNull: false,
+      field: 'CreatedOn'
     },
-    OfferedOn: {
+    offeredOn: {
       type: DataTypes.DATEONLY,
-      allowNull: false
+      allowNull: false,
+      field: 'OfferedOn'
     },
-    Price: {
+    price: {
       type: DataTypes.INTEGER.UNSIGNED,
-      allowNull: false
+      allowNull: false,
+      field: 'Price'
     },
-    UserID: {
+    userId: {
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
       references: {
         model: 'user',
         key: 'ID'
-      }
+      },
+      field: 'UserID'
     },
-    StudenthomeID: {
+    studenthomeId: {
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
       references: {
         model: 'studenthome',
         key: 'ID'
-      }
+      },
+      field: 'StudenthomeID'
     },
-    MaxParticipants: {
+    maxParticipants: {
       type: DataTypes.INTEGER.UNSIGNED,
-      allowNull: false
+      allowNull: false,
+      field: 'MaxParticipants'
     }
   }, {
     sequelize,

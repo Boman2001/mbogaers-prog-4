@@ -9,51 +9,59 @@ const bcrypt = require('bcrypt')
  * @return {Promise}
  */
 module.exports.loginUser = async (options) => {
-  // Implement your business logic here...
-  //
-  // This function should return as follows:
-  //
-  // return {
-  //   status: 200, // Or another success code.
-  //   data: [] // Optional. You can put whatever you want here.
-  // };
-  //
-  // If an error happens during your business logic implementation,
-  // you should throw an error as follows:
-  //
-  // throw new ServerError({
-  //   status: 500, // Or another error code.
-  //   error: 'Server Error' // Or another error message.
-  // });
-
-  return {
-    status: 200,
-    data: 'loginUser ok!'
-  };
-};
-
-module.exports.registerUser = async (options) => {
-  const checkuser = await user.findOne({email: options.body.email}).exec();
-  if (!checkuser) {
-    let salt = bcrypt.genSaltSync(10);
-    let password = bcrypt.hashSync(options.body.password, salt,);
-
-    let createUser = {
-      First_Name:  options.body.First_Name,
-      Last_Name:  options.body.Last_Name,
-      Email: options.body.Email,
-      Student_Number: options.body.Student_Number,
-      Password: password
+  const checkUser = await user.findOne({where:{email: options.body.email}}).then();
+  console.log(checkUser);
+  if (checkUser) {
+    const result = bcrypt.compareSync(options.body.password, checkUser.password)
+    console.log(result)
+    if (result) {
+      delete checkUser.password;
+      return {
+        status: 200,
+        data: {token: jwt.sign({user: checkUser}, process.env.SECRET, {}),result: checkUser }
+      };
+    } else {
+      return {
+        status: 422,
+        data: {message:"wrong password"}
+      }
     }
-    const result = await user.create(createUser);
-    return {
-      status: 200,
-      data: {token: jwt.sign({user: result}, secret, {}), result: result}
-    };
   } else {
     return {
       status: 422,
-      data: "User Already Registerd"
+      data: {message:"No User Found"}
     }
   }
 };
+
+module.exports.registerUser = async (options) => {
+
+  let salt = bcrypt.genSaltSync(10);
+  let password = bcrypt.hashSync(options.body.password, salt,);
+
+  let createUser = {
+    firstName: options.body.firstName,
+    lastName: options.body.lastName,
+    email: options.body.email,
+    studentNumber: options.body.studentNumber,
+    password: password
+  }
+  try{
+    const result = await user.create(createUser).then();
+    let returnVal = result.dataValues;
+    delete returnVal.password;
+    console.info(returnVal);
+    return {
+      status: 200,
+      data: {token: jwt.sign({user: result.dataValues}, process.env.SECRET, {}), result: returnVal}
+    };
+
+  }catch (e){
+    return {
+      status: 406,
+      data: e
+    };
+  }
+
+}
+

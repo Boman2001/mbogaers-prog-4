@@ -9,7 +9,7 @@ const router = new express.Router();
  */
 router.post('/', async (req, res, next) => {
   const options = {
-    body: req.body['body']
+    body: req.body
   };
 
   try {
