@@ -6,14 +6,13 @@ properties:
     type: string
   address:
     type: string
-  streetnumber:
+  houseNr:
     type: integer
   postalCode:
     type: string
-  place:
+  city:
     type: string
-    format: email
-  phonenumber:
+  telephone:
     type: string
     minLength: 5
 

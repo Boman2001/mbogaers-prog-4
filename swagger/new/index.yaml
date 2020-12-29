@@ -20,7 +20,6 @@ schemes:
   - https
 
 paths:
-  $ref: \paths\index.yaml
 
 securityDefinitions:
   Bearer:

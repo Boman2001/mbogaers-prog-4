@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
-      allowNull: false,
+      allowNull: true,
       primaryKey: true,
       field: 'ID'
     },
@@ -30,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     createdOn: {
       type: DataTypes.DATEONLY,
-      allowNull: false,
+      allowNull: true,
       field: 'CreatedOn'
     },
     offeredOn: {

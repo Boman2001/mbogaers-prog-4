@@ -1,7 +1,7 @@
 const ServerError = require('../lib/error');
-const jwt = require("jsonwebtoken");
 const user = require("../repositories/sequalize").models.user;
 const bcrypt = require('bcrypt')
+const tokenHandler = require('../services/token')
 /**
  * @param {Object} options
  * @param {Object} options.body
@@ -13,12 +13,11 @@ module.exports.loginUser = async (options) => {
   console.log(checkUser);
   if (checkUser) {
     const result = bcrypt.compareSync(options.body.password, checkUser.password)
-    console.log(result)
     if (result) {
-      delete checkUser.password;
+      delete checkUser.dataValues.password;
       return {
         status: 200,
-        data: {token: jwt.sign({user: checkUser}, process.env.SECRET, {}),result: checkUser }
+        data: {token: tokenHandler.signToken(checkUser.dataValues),result: checkUser }
       };
     } else {
       return {
@@ -53,7 +52,7 @@ module.exports.registerUser = async (options) => {
     console.info(returnVal);
     return {
       status: 200,
-      data: {token: jwt.sign({user: result.dataValues}, process.env.SECRET, {}), result: returnVal}
+      data: {token: tokenHandler.signToken(returnVal), result: returnVal}
     };
 
   }catch (e){
@@ -62,6 +61,4 @@ module.exports.registerUser = async (options) => {
       data: e
     };
   }
-
 }
-

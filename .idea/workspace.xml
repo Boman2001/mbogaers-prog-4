@@ -20,18 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c9a2996-f755-4919-ae3f-555c5d3d00f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/api/src/routes/info.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/services/Info.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/services/token.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/.env.development" beforeDir="false" afterPath="$PROJECT_DIR$/api/.env.development" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/models/init-models.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/models/init-models.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/models/meal.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/models/meal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/models/participants.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/models/participants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/models/studenthome.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/models/studenthome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/models/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/routes/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/routes/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/routes/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/routes/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/routes/dormatories.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/routes/dormatories.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/services/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swagger/new/definitions/TokenResponse.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/new/definitions/TokenResponse.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swagger/new/definitions/User.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/new/definitions/User.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/services/dormatories.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/dormatories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swagger/new/definitions/Dorm.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/new/definitions/Dorm.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swagger/new/definitions/Meal.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/new/definitions/Meal.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swagger/new/index.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/new/index.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swagger/new/paths/Dormatories.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/new/paths/Dormatories.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swagger/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/swagger.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +87,7 @@
       <workItem from="1608713397471" duration="378000" />
       <workItem from="1608713792907" duration="593000" />
       <workItem from="1609153202380" duration="6740000" />
-      <workItem from="1609163116041" duration="10139000" />
+      <workItem from="1609163116041" duration="22304000" />
     </task>
     <servers />
   </component>
@@ -113,22 +115,22 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="314" y="358" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609164660897" />
-    <state width="1674" height="400" key="GridCell.Tab.0.bottom" timestamp="1609242248659">
+    <state width="1674" height="400" key="GridCell.Tab.0.bottom" timestamp="1609250387432">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1674" height="400" key="GridCell.Tab.0.bottom/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609242248659" />
-    <state width="1674" height="400" key="GridCell.Tab.0.center" timestamp="1609242248659">
+    <state width="1674" height="400" key="GridCell.Tab.0.bottom/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609250387432" />
+    <state width="1674" height="400" key="GridCell.Tab.0.center" timestamp="1609250387432">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1674" height="400" key="GridCell.Tab.0.center/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609242248659" />
-    <state width="1674" height="400" key="GridCell.Tab.0.left" timestamp="1609242248659">
+    <state width="1674" height="400" key="GridCell.Tab.0.center/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609250387432" />
+    <state width="1674" height="400" key="GridCell.Tab.0.left" timestamp="1609250387432">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1674" height="400" key="GridCell.Tab.0.left/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609242248659" />
-    <state width="1674" height="400" key="GridCell.Tab.0.right" timestamp="1609242248659">
+    <state width="1674" height="400" key="GridCell.Tab.0.left/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609250387432" />
+    <state width="1674" height="400" key="GridCell.Tab.0.right" timestamp="1609250387432">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1674" height="400" key="GridCell.Tab.0.right/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609242248659" />
+    <state width="1674" height="400" key="GridCell.Tab.0.right/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609250387432" />
     <state x="1029" y="207" key="SettingsEditor" timestamp="1608713768405">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>

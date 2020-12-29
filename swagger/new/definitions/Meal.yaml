@@ -13,10 +13,14 @@ properties:
     type: string
     format: date-time
   price:
-    type: string
-  allergens:
+    type: decimal
+  allergies:
     type: string
   ingredients:
+    type: string
+  maxParticipants:
+    type: integer
+  offeredOn:
     type: string
 
 

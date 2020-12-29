@@ -3,6 +3,22 @@ const dormatories = require('../services/dormatories');
 
 const router = new express.Router();
 
+/**
+ * create Dorm.
+ */
+router.post('/', async (req, res, next) => {
+  const options = {
+    token: req.header('Authorization').split(" ")[1],
+    body: req.body
+  };
+
+  try {
+    const result = await dormatories.createDorm(options);
+    res.status(result.status || 200).send(result.data);
+  } catch (err) {
+    next(err);
+  }
+});
 
 /**
  * Get all Dorms.
@@ -42,7 +58,8 @@ router.get('/:id', async (req, res, next) => {
  */
 router.delete('/:id', async (req, res, next) => {
   const options = {
-    id: req.params['id']
+    id: req.params['id'],
+    token: req.header('Authorization').split(" ")[1]
   };
 
   try {
@@ -59,7 +76,8 @@ router.delete('/:id', async (req, res, next) => {
 router.put('/:id', async (req, res, next) => {
   const options = {
     id: req.params['id'],
-    body: req.body['body']
+    body: req.body,
+    token: req.header('Authorization').split(" ")[1]
   };
 
   try {
@@ -76,7 +94,8 @@ router.put('/:id', async (req, res, next) => {
 router.post('/:id/user', async (req, res, next) => {
   const options = {
     id: req.params['id'],
-    body: req.body['body']
+    body: req.body,
+    token: req.header('Authorization').split(" ")[1]
   };
 
   try {
@@ -93,7 +112,8 @@ router.post('/:id/user', async (req, res, next) => {
 router.post('/:dormId/meal', async (req, res, next) => {
   const options = {
     dormId: req.params['dormId'],
-    body: req.body['body']
+    body: req.body,
+    token: req.header('Authorization').split(" ")[1]
   };
 
   try {
@@ -109,7 +129,8 @@ router.post('/:dormId/meal', async (req, res, next) => {
  */
 router.get('/:dormId/meal', async (req, res, next) => {
   const options = {
-    dormId: req.params['dormId']
+    dormId: req.params['dormId'],
+    token: req.header('Authorization').split(" ")[1]
   };
 
   try {
@@ -130,7 +151,7 @@ router.get('/:dormId/meal/:mealId', async (req, res, next) => {
   };
 
   try {
-    const result = await dormatories.getMealOverview(options);
+    const result = await dormatories.getMealDetail(options);
     res.status(result.status || 200).send(result.data);
   } catch (err) {
     next(err);
@@ -138,16 +159,18 @@ router.get('/:dormId/meal/:mealId', async (req, res, next) => {
 });
 
 /**
- * Get a Meal.
+ * Edit a Meal.
  */
 router.put('/:dormId/meal/:mealId', async (req, res, next) => {
   const options = {
     dormId: req.params['dormId'],
-    mealId: req.params['mealId']
+    mealId: req.params['mealId'],
+    body: req.body,
+    token: req.header('Authorization').split(" ")[1]
   };
 
   try {
-    const result = await dormatories.getMealOverview(options);
+    const result = await dormatories.editMeal(options);
     res.status(result.status || 200).send(result.data);
   } catch (err) {
     next(err);
@@ -160,7 +183,8 @@ router.put('/:dormId/meal/:mealId', async (req, res, next) => {
 router.delete('/:dormId/meal/:mealId', async (req, res, next) => {
   const options = {
     dormId: req.params['dormId'],
-    mealId: req.params['mealId']
+    mealId: req.params['mealId'],
+    token: req.header('Authorization').split(" ")[1]
   };
 
   try {
@@ -177,7 +201,8 @@ router.delete('/:dormId/meal/:mealId', async (req, res, next) => {
 router.post('/:dormId/meal/:mealId/signup', async (req, res, next) => {
   const options = {
     dormId: req.params['dormId'],
-    mealid: req.params['mealid']
+    mealid: req.params['mealid'],
+    token: req.header('Authorization').split(" ")[1]
   };
 
   try {
@@ -194,7 +219,8 @@ router.post('/:dormId/meal/:mealId/signup', async (req, res, next) => {
 router.put('/:dormId/meal/:mealId/signoff', async (req, res, next) => {
   const options = {
     dormId: req.params['dormId'],
-    mealid: req.params['mealid']
+    mealid: req.params['mealid'],
+    token: req.header('Authorization').split(" ")[1]
   };
 
   try {
