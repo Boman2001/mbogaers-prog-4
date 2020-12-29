@@ -10,10 +10,10 @@ variables:
 
   # Azure Resource Manager connection created during pipeline creation
   azureSubscription: '88edfb37-8e16-4ffc-9ec3-c92f7f7cdce0'
-  
+
   # Web app name
   webAppName: 'sameneten'
-  
+
   # Environment name
   environmentName: 'sameneten'
 
@@ -23,24 +23,24 @@ variables:
 stages:
 - stage: Build
   displayName: Build stage
-  jobs:  
+  jobs:
   - job: Build
     displayName: Build
     pool:
       vmImage: $(vmImageName)
-      
+
     steps:
     - task: NodeTool@0
       inputs:
         versionSpec: '10.x'
       displayName: 'Install Node.js'
 
-    - script: cd api |
+    - script: |
         npm install
         npm run build --if-present
         npm run test --if-present
       displayName: 'npm install, build and test'
-      
+
     - task: ArchiveFiles@2
       displayName: 'Archive files'
       inputs:
@@ -61,12 +61,12 @@ stages:
   - deployment: Deploy
     displayName: Deploy
     environment: $(environmentName)
-    pool: 
+    pool:
       vmImage: $(vmImageName)
     strategy:
       runOnce:
         deploy:
-          steps:            
+          steps:
           - task: AzureWebApp@1
             displayName: 'Azure Web App Deploy: sameneten'
             inputs:
