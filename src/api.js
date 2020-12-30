@@ -15,6 +15,7 @@ app.use('/api/dormatories', require('./routes/dormatories'));
 app.use('/api/Meals', require('./routes/Meals'));
 app.use('/api/register', require('./routes/register'));
 app.use('/api/login', require('./routes/login'));
+app.use('/api/info', require('./routes/Info'));
 
 // catch 404
 app.use((req, res, next) => {
