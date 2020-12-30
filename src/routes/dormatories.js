@@ -1,5 +1,7 @@
 const express = require('express');
 const dormatories = require('../services/dormatories');
+const meals = require('../services/Meals');
+const participants = require('../services/participants');
 
 const router = new express.Router();
 
@@ -117,7 +119,7 @@ router.post('/:dormId/meal', async (req, res, next) => {
   };
 
   try {
-    const result = await dormatories.createMeal(options);
+    const result = await meals.createMeal(options);
     res.status(result.status || 200).send(result.data);
   } catch (err) {
     next(err);
@@ -134,7 +136,7 @@ router.get('/:dormId/meal', async (req, res, next) => {
   };
 
   try {
-    const result = await dormatories.getMealOverview(options);
+    const result = await meals.getMealOverview(options);
     res.status(result.status || 200).send(result.data);
   } catch (err) {
     next(err);
@@ -151,7 +153,7 @@ router.get('/:dormId/meal/:mealId', async (req, res, next) => {
   };
 
   try {
-    const result = await dormatories.getMealDetail(options);
+    const result = await meals.getMealDetail(options);
     res.status(result.status || 200).send(result.data);
   } catch (err) {
     next(err);
@@ -170,7 +172,7 @@ router.put('/:dormId/meal/:mealId', async (req, res, next) => {
   };
 
   try {
-    const result = await dormatories.editMeal(options);
+    const result = await meals.editMeal(options);
     res.status(result.status || 200).send(result.data);
   } catch (err) {
     next(err);
@@ -188,7 +190,7 @@ router.delete('/:dormId/meal/:mealId', async (req, res, next) => {
   };
 
   try {
-    const result = await dormatories.deleteMeal(options);
+    const result = await meals.deleteMeal(options);
     res.status(result.status || 200).send(result.data);
   } catch (err) {
     next(err);
@@ -201,12 +203,12 @@ router.delete('/:dormId/meal/:mealId', async (req, res, next) => {
 router.post('/:dormId/meal/:mealId/signup', async (req, res, next) => {
   const options = {
     dormId: req.params['dormId'],
-    mealid: req.params['mealid'],
+    mealId: req.params['mealId'],
     token: req.header('Authorization').split(" ")[1]
   };
 
   try {
-    const result = await dormatories.registerParticipant(options);
+    const result = await participants.registerParticipant(options);
     res.status(result.status || 200).send(result.data);
   } catch (err) {
     next(err);
@@ -219,12 +221,12 @@ router.post('/:dormId/meal/:mealId/signup', async (req, res, next) => {
 router.put('/:dormId/meal/:mealId/signoff', async (req, res, next) => {
   const options = {
     dormId: req.params['dormId'],
-    mealid: req.params['mealid'],
+    mealId: req.params['mealId'],
     token: req.header('Authorization').split(" ")[1]
   };
 
   try {
-    const result = await dormatories.deregisterParticipant(options);
+    const result = await participants.deregisterParticipant(options);
     res.status(result.status || 200).send(result.data);
   } catch (err) {
     next(err);

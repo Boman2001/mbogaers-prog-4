@@ -33,7 +33,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     signedUpOn: {
       type: DataTypes.DATEONLY,
-      allowNull: false,
+      allowNull: true,
       field: 'SignedUpOn'
     }
   }, {

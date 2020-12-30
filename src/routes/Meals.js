@@ -1,5 +1,6 @@
 const express = require('express');
 const meals = require('../services/Meals');
+const participants = require('../services/participants');
 
 const router = new express.Router();
 
@@ -23,13 +24,13 @@ router.get('/:id', async (req, res, next) => {
 /**
  * get All Participants
  */
-router.post('/:mealId/participants', async (req, res, next) => {
+router.get('/:mealId/participants', async (req, res, next) => {
   const options = {
     mealId: req.params['mealId']
   };
 
   try {
-    const result = await meals.getAllParticipants(options);
+    const result = await participants.getAllParticipants(options);
     res.status(result.status || 200).send(result.data);
   } catch (err) {
     next(err);
@@ -53,4 +54,6 @@ router.get('/:mealId/participants/:participantId', async (req, res, next) => {
   }
 });
 
+
 module.exports = router;
+

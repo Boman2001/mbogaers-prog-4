@@ -16,4 +16,4 @@ ON UPDATE CASCADE
 ADD CONSTRAINT `fk_inhabitants_studentenhome`
 FOREIGN KEY (`StudenthomeID`) REFERENCES `studenthome` (`ID`)
 ON DELETE NO ACTION
-ON UPDATE CASCADE;
+ON UPDATE CASCADE;studenthomestudenthome

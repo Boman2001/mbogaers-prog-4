@@ -13,7 +13,6 @@ app.use(cookieParser());
  */
 app.use('/api/dormatories', require('./routes/dormatories'));
 app.use('/api/Meals', require('./routes/Meals'));
-app.use('/api/meal', require('./routes/meal'));
 app.use('/api/register', require('./routes/register'));
 app.use('/api/login', require('./routes/login'));
 
