@@ -7,7 +7,7 @@
   "license": "ISC",
   "private": true,
   "scripts": {
-    "start": "node .",
+    "start": "node ./dist/main.js",
     "dev": "cross-env NODE_ENV=development babel-watch ./src/main.js",
     "build": "cross-env NODE_ENV=production babel ./src --out-dir dist",
     "test": "cross-env NODE_ENV=test jest"
@@ -22,9 +22,7 @@
     "helmet": "^4.3.1",
     "jsonwebtoken": "^8.5.1",
     "mariadb": "^2.5.2",
-    "node-yaml-config": "0.0.6",
     "sequelize": "^6.3.5",
-    "uuid": "^8.3.1",
     "dotenv": "^8.2.0"
   },
   "devDependencies": {
