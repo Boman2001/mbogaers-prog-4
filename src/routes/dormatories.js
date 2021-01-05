@@ -93,11 +93,20 @@ router.delete('/:id', async (req, res, next) => {
  * Edit a Dorm.
  */
 router.put('/:id', async (req, res, next) => {
-  const options = {
-    id: req.params['id'],
-    body: req.body,
-    token: req.header('Authorization').split(" ")[1]
-  };
+  let options;
+  if (req.header('Authorization')){
+    options = {
+      id: req.params['id'],
+      body: req.body,
+      token: req.header('Authorization').split(" ")[1]
+    };
+  }else{
+    options = {
+      token: "non auth",
+      id: req.params['id'],
+      body: req.body,
+    };
+  }
 
   try {
     const result = await dormatories.editDorm(options);
