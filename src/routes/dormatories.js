@@ -299,7 +299,7 @@ router.post('/:dormId/meal/:mealId/signup', async (req, res, next) => {
 /**
  * deregister A Participant
  */
-router.put('/:dormId/meal/:mealId/signoff', async (req, res, next) => {
+router.post('/:dormId/meal/:mealId/signoff', async (req, res, next) => {
   let options
   if (req.header('Authorization')){
     options = {

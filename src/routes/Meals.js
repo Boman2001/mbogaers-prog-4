@@ -9,9 +9,18 @@ const router = new express.Router();
  * Get a Meal.
  */
 router.get('/:id', async (req, res, next) => {
-  const options = {
-    id: req.params['id']
-  };
+  let options
+  if (req.header('Authorization')){
+    options = {
+      id: req.params['id'],
+      token: req.header('Authorization').split(" ")[1],
+    };
+  }else{
+    options = {
+      id: req.params['id'],
+      token: "non auth",
+    };
+  }
 
   try {
     const result = await meals.getMealDetail(options);
@@ -25,9 +34,18 @@ router.get('/:id', async (req, res, next) => {
  * get All Participants
  */
 router.get('/:mealId/participants', async (req, res, next) => {
-  const options = {
-    mealId: req.params['mealId']
-  };
+  let options
+  if (req.header('Authorization')){
+    options = {
+      token: req.header('Authorization').split(" ")[1],
+      mealId: req.params['mealId'],
+    };
+  }else{
+    options = {
+      mealId: req.params['mealId'],
+      token: "non auth",
+    };
+  }
 
   try {
     const result = await participants.getAllParticipants(options);
@@ -41,10 +59,20 @@ router.get('/:mealId/participants', async (req, res, next) => {
  * Get a User.
  */
 router.get('/:mealId/participants/:participantId', async (req, res, next) => {
-  const options = {
-    mealId: req.params['mealId'],
-    participantId: req.params['participantId']
-  };
+  let options
+  if (req.header('Authorization')){
+    options = {
+      token: req.header('Authorization').split(" ")[1],
+      participantId: req.params['participantId'],
+      mealId: req.params['mealId'],
+    };
+  }else{
+    options = {
+      mealId: req.params['mealId'],
+      participantId: req.params['participantId'],
+      token: "non auth",
+    };
+  }
 
   try {
     const result = await meals.getUserDetailFromMeal(options);

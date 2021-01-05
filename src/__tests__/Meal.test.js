@@ -295,7 +295,7 @@ describe("UC-30x Maaltijd", () => {
         "allergies": "<string>",
         "ingredients": "<string>",
         "maxParticipants": 60,
-        "offeredOn": "2020-09-01"
+        "offeredOn": "2220-09-01"
       }
 
       await supertest(app).put("/api/dormatories/8/meal/5")
@@ -413,50 +413,4 @@ describe("UC-30x Maaltijd", () => {
 
     })
   });
-})
-describe("UC-40x Maaltijd Detail", () => {
-  describe("UC-401 Aanmelden voor maaltijd", () => {
-    test("TC-401-1 Niet ingelogd", async () => {
-      await supertest(app).put("/api/dormatories/8/meal/5")
-        .set("Authorization", "token " + token)
-        .send(meal)
-        .then(function (res) {
-          if (res) {
-            result = res;
-          }
-        });
-      expect(result.statusCode).toBe(400)
-      expect(result.body.name).toBe("SequelizeValidationError");
-      expect(result.body.errors[0].message).toBe("invalid object");
-    })
-
-    test("TC-401-2 Maaltijd bestaat niet ", async () => {
-      await supertest(app).put("/api/dormatories/8/meal/5")
-        .set("Authorization", "token " + token)
-        .send(meal)
-        .then(function (res) {
-          if (res) {
-            result = res;
-          }
-        });
-      expect(result.statusCode).toBe(400)
-      expect(result.body.name).toBe("SequelizeValidationError");
-      expect(result.body.errors[0].message).toBe("invalid object");
-    })
-
-    test("TC-401-3 Succesvol aangemeld ", async () => {
-      await supertest(app).put("/api/dormatories/8/meal/5")
-        .set("Authorization", "token " + token)
-        .send(meal)
-        .then(function (res) {
-          if (res) {
-            result = res;
-          }
-        });
-      expect(result.statusCode).toBe(200)
-      expect(result.body.name).toBe("SequelizeValidationError");
-    })
-  })
-
-
 })

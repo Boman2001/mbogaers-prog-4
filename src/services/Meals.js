@@ -1,6 +1,7 @@
 const ServerError = require('../lib/error').ServerError;
 const Meal = require('../repositories/sequalize').models.meal;
 const Dorm = require('../repositories/sequalize').models.studenthome;
+const User = require('../repositories/sequalize').models.user;
 const tokenHandler = require('../services/token')
 /**
  * @param {Object} options
@@ -317,26 +318,39 @@ module.exports.deleteMeal = async (options) => {
  * @return {Promise}
  */
 module.exports.getUserDetailFromMeal = async (options) => {
-  // Implement your business logic here...
-  //
-  // This function should return as follows:
-  //
-  // return {
-  //   status: 200, // Or another success code.
-  //   data: [] // Optional. You can put whatever you want here.
-  // };
-  //
-  // If an error happens during your business logic implementation,
-  // you should throw an error as follows:
-  //
-  // throw new ServerError({
-  //   status: 500, // Or another error code.
-  //   error: 'Server Error' // Or another error message.
-  // });
-
-  return {
-    status: 200,
-    data: {error: 'getUserDetailFromMeal ok!'}
-  };
+  if (!tokenHandler.validateToken(options.token)) {
+    return {
+      status: 401,
+      data: ServerError({
+        "name": "Authorization Error",
+        "errors": [
+          {
+            "message": "Not Logged In",
+          }
+        ]
+      })
+    }
+  } else {
+    const mealDetail = await User.findOne({where: {id: options.participantId}}).then();
+    if (mealDetail) {
+      mealDetail.password = undefined;
+      return {
+        status: 200,
+        data: mealDetail
+      };
+    } else {
+      return {
+        status: 404,
+        data: ServerError({
+          "name": "Search Error",
+          "errors": [
+            {
+              "message": "No Participants match your query"
+            }
+          ],
+        })
+      };
+    }
+  }
 };
 

@@ -20,12 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c9a2996-f755-4919-ae3f-555c5d3d00f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/__tests__/Participant.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Dorm.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Dorm.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/__tests__/Meal.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Meal.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/Meals.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Meals.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/dormatories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/dormatories.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/Meals.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/Meals.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/dormatories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/dormatories.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/participants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/participants.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,76 +56,87 @@
       <recent name="C:\School\p2.2\mbogaers-prog-4\api\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.UC-30x Maaltijd">
-    <configuration name="UC-30x Maaltijd" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jest.jest.config.js">
+    <configuration name="UC-40x Maaltijd Detail" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Meal.test.js" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Participant.test.js" />
       <test-names>
-        <test-name value="UC-30x Maaltijd" />
+        <test-name value="UC-40x Maaltijd Detail" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="UC-30x Maaltijd.UC-302 Maaltijd wijzigen" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Meal.test.js" />
-      <test-names>
-        <test-name value="UC-30x Maaltijd" />
-        <test-name value="UC-302 Maaltijd wijzigen" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="UC-30x Maaltijd.UC-302 Maaltijd wijzigen.TC-204-6 Studentenhuis succesvol gewijzigd" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="UC-40x Maaltijd Detail.UC-401 Aanmelden voor maaltijd.TC-401-1 Niet ingelogd" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Meal.test.js" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Participant.test.js" />
       <test-names>
-        <test-name value="UC-30x Maaltijd" />
-        <test-name value="UC-302 Maaltijd wijzigen" />
-        <test-name value="TC-204-6 Studentenhuis succesvol gewijzigd" />
+        <test-name value="UC-40x Maaltijd Detail" />
+        <test-name value="UC-401 Aanmelden voor maaltijd" />
+        <test-name value="TC-401-1 Niet ingelogd" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="UC-30x Maaltijd.UC-302 Maaltijd wijzigen.TC-302-4 Maaltijd bestaat niet" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="UC-40x Maaltijd Detail.UC-401 Aanmelden voor maaltijd.TC-401-2 Maaltijd bestaat niet " type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Meal.test.js" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Participant.test.js" />
       <test-names>
-        <test-name value="UC-30x Maaltijd" />
-        <test-name value="UC-302 Maaltijd wijzigen" />
-        <test-name value="TC-302-4 Maaltijd bestaat niet" />
+        <test-name value="UC-40x Maaltijd Detail" />
+        <test-name value="UC-401 Aanmelden voor maaltijd" />
+        <test-name value="TC-401-2 Maaltijd bestaat niet " />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="UC-30x Maaltijd.UC-305 Maaltijd verwijderen " type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="UC-40x Maaltijd Detail.UC-401 Aanmelden voor maaltijd.TC-401-3 Succesvol aangemeld " type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Participant.test.js" />
+      <test-names>
+        <test-name value="UC-40x Maaltijd Detail" />
+        <test-name value="UC-401 Aanmelden voor maaltijd" />
+        <test-name value="TC-401-3 Succesvol aangemeld " />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="UC-40x Maaltijd Detail.UC-403 Lijst van deelnemers opvragen" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Meal.test.js" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Participant.test.js" />
       <test-names>
-        <test-name value="UC-30x Maaltijd" />
-        <test-name value="UC-305 Maaltijd verwijderen " />
+        <test-name value="UC-40x Maaltijd Detail" />
+        <test-name value="UC-403 Lijst van deelnemers opvragen" />
       </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="jest.config.js" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
+      <config-file value="$PROJECT_DIR$/jest.config.js" />
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="ALL" />
       <method v="2" />
     </configuration>
     <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
@@ -138,13 +149,22 @@
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Jest.jest.config.js" />
+      <item itemvalue="Jest.UC-40x Maaltijd Detail" />
+      <item itemvalue="Jest.UC-40x Maaltijd Detail.UC-401 Aanmelden voor maaltijd.TC-401-1 Niet ingelogd" />
+      <item itemvalue="Jest.UC-40x Maaltijd Detail.UC-401 Aanmelden voor maaltijd.TC-401-2 Maaltijd bestaat niet " />
+      <item itemvalue="Jest.UC-40x Maaltijd Detail.UC-401 Aanmelden voor maaltijd.TC-401-3 Succesvol aangemeld " />
+      <item itemvalue="npm.dev" />
+      <item itemvalue="Jest.UC-40x Maaltijd Detail.UC-403 Lijst van deelnemers opvragen" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.UC-30x Maaltijd" />
-        <item itemvalue="Jest.UC-30x Maaltijd.UC-305 Maaltijd verwijderen " />
-        <item itemvalue="Jest.UC-30x Maaltijd.UC-302 Maaltijd wijzigen.TC-204-6 Studentenhuis succesvol gewijzigd" />
-        <item itemvalue="Jest.UC-30x Maaltijd.UC-302 Maaltijd wijzigen" />
-        <item itemvalue="Jest.UC-30x Maaltijd.UC-302 Maaltijd wijzigen.TC-302-4 Maaltijd bestaat niet" />
+        <item itemvalue="Jest.UC-40x Maaltijd Detail" />
+        <item itemvalue="Jest.UC-40x Maaltijd Detail.UC-403 Lijst van deelnemers opvragen" />
+        <item itemvalue="Jest.UC-40x Maaltijd Detail.UC-401 Aanmelden voor maaltijd.TC-401-3 Succesvol aangemeld " />
+        <item itemvalue="Jest.UC-40x Maaltijd Detail.UC-401 Aanmelden voor maaltijd.TC-401-1 Niet ingelogd" />
+        <item itemvalue="Jest.UC-40x Maaltijd Detail.UC-401 Aanmelden voor maaltijd.TC-401-2 Maaltijd bestaat niet " />
       </list>
     </recent_temporary>
   </component>
@@ -163,7 +183,7 @@
       <workItem from="1609153202380" duration="6740000" />
       <workItem from="1609163116041" duration="22793000" />
       <workItem from="1609258383596" duration="363000" />
-      <workItem from="1609329319879" duration="48757000" />
+      <workItem from="1609329319879" duration="52959000" />
     </task>
     <servers />
   </component>
@@ -187,78 +207,78 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="600" y="571" key="#Project_Settings/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609169479560" />
-    <state x="314" y="358" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609164660897">
+    <state x="314" y="358" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609861340339">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state x="314" y="358" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609164660897" />
+    <state x="314" y="358" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609861340339" />
     <state x="93" y="100" width="1534" height="1207" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1609774671919">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="93" y="100" width="1534" height="1207" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609774671919" />
-    <state width="3397" height="470" key="GridCell.Tab.0.bottom" timestamp="1609859150765">
+    <state width="3397" height="470" key="GridCell.Tab.0.bottom" timestamp="1609864181330">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="470" key="GridCell.Tab.0.bottom/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609859150765" />
-    <state width="3397" height="470" key="GridCell.Tab.0.center" timestamp="1609859150763">
+    <state width="3397" height="470" key="GridCell.Tab.0.bottom/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609864181330" />
+    <state width="3397" height="470" key="GridCell.Tab.0.center" timestamp="1609864181326">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="470" key="GridCell.Tab.0.center/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609859150763" />
-    <state width="3397" height="470" key="GridCell.Tab.0.left" timestamp="1609859150763">
+    <state width="3397" height="470" key="GridCell.Tab.0.center/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609864181326" />
+    <state width="3397" height="470" key="GridCell.Tab.0.left" timestamp="1609864181321">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="470" key="GridCell.Tab.0.left/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609859150763" />
-    <state width="3397" height="470" key="GridCell.Tab.0.right" timestamp="1609859150764">
+    <state width="3397" height="470" key="GridCell.Tab.0.left/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609864181321" />
+    <state width="3397" height="470" key="GridCell.Tab.0.right" timestamp="1609864181329">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="470" key="GridCell.Tab.0.right/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609859150764" />
-    <state width="3397" height="491" key="GridCell.Tab.1.bottom" timestamp="1609855244932">
+    <state width="3397" height="470" key="GridCell.Tab.0.right/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609864181329" />
+    <state width="3397" height="491" key="GridCell.Tab.1.bottom" timestamp="1609861348077">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="491" key="GridCell.Tab.1.bottom/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609855244932" />
-    <state width="3397" height="491" key="GridCell.Tab.1.center" timestamp="1609855244931">
+    <state width="3397" height="491" key="GridCell.Tab.1.bottom/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609861348077" />
+    <state width="3397" height="491" key="GridCell.Tab.1.center" timestamp="1609861348075">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="491" key="GridCell.Tab.1.center/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609855244931" />
-    <state width="3397" height="491" key="GridCell.Tab.1.left" timestamp="1609855244930">
+    <state width="3397" height="491" key="GridCell.Tab.1.center/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609861348075" />
+    <state width="3397" height="491" key="GridCell.Tab.1.left" timestamp="1609861348074">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="491" key="GridCell.Tab.1.left/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609855244930" />
-    <state width="3397" height="491" key="GridCell.Tab.1.right" timestamp="1609855244932">
+    <state width="3397" height="491" key="GridCell.Tab.1.left/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609861348074" />
+    <state width="3397" height="491" key="GridCell.Tab.1.right" timestamp="1609861348076">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="491" key="GridCell.Tab.1.right/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609855244932" />
-    <state width="3397" height="491" key="GridCell.Tab.2.bottom" timestamp="1609855244933">
+    <state width="3397" height="491" key="GridCell.Tab.1.right/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609861348076" />
+    <state width="3397" height="491" key="GridCell.Tab.2.bottom" timestamp="1609861348078">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="491" key="GridCell.Tab.2.bottom/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609855244933" />
-    <state width="3397" height="491" key="GridCell.Tab.2.center" timestamp="1609855244933">
+    <state width="3397" height="491" key="GridCell.Tab.2.bottom/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609861348078" />
+    <state width="3397" height="491" key="GridCell.Tab.2.center" timestamp="1609861348078">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="491" key="GridCell.Tab.2.center/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609855244933" />
-    <state width="3397" height="491" key="GridCell.Tab.2.left" timestamp="1609855244933">
+    <state width="3397" height="491" key="GridCell.Tab.2.center/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609861348078" />
+    <state width="3397" height="491" key="GridCell.Tab.2.left" timestamp="1609861348078">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="491" key="GridCell.Tab.2.left/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609855244933" />
-    <state width="3397" height="491" key="GridCell.Tab.2.right" timestamp="1609855244933">
+    <state width="3397" height="491" key="GridCell.Tab.2.left/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609861348078" />
+    <state width="3397" height="491" key="GridCell.Tab.2.right" timestamp="1609861348078">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="491" key="GridCell.Tab.2.right/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609855244933" />
-    <state width="3397" height="491" key="GridCell.Tab.3.bottom" timestamp="1609855244933">
+    <state width="3397" height="491" key="GridCell.Tab.2.right/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609861348078" />
+    <state width="3397" height="491" key="GridCell.Tab.3.bottom" timestamp="1609861348079">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="491" key="GridCell.Tab.3.bottom/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609855244933" />
-    <state width="3397" height="491" key="GridCell.Tab.3.center" timestamp="1609855244933">
+    <state width="3397" height="491" key="GridCell.Tab.3.bottom/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609861348079" />
+    <state width="3397" height="491" key="GridCell.Tab.3.center" timestamp="1609861348078">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="491" key="GridCell.Tab.3.center/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609855244933" />
-    <state width="3397" height="491" key="GridCell.Tab.3.left" timestamp="1609855244933">
+    <state width="3397" height="491" key="GridCell.Tab.3.center/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609861348078" />
+    <state width="3397" height="491" key="GridCell.Tab.3.left" timestamp="1609861348078">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="491" key="GridCell.Tab.3.left/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609855244933" />
-    <state width="3397" height="491" key="GridCell.Tab.3.right" timestamp="1609855244933">
+    <state width="3397" height="491" key="GridCell.Tab.3.left/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609861348078" />
+    <state width="3397" height="491" key="GridCell.Tab.3.right" timestamp="1609861348078">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="491" key="GridCell.Tab.3.right/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609855244933" />
+    <state width="3397" height="491" key="GridCell.Tab.3.right/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609861348078" />
     <state x="1029" y="207" key="SettingsEditor" timestamp="1609333378287">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
@@ -283,7 +303,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/services/Meals.js</url>
-          <line>30</line>
+          <line>31</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="14" />
         </line-breakpoint>
@@ -292,6 +312,18 @@
           <line>5</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/services/participants.js</url>
+          <line>39</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/services/participants.js</url>
+          <line>15</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
