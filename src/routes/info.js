@@ -1,5 +1,8 @@
-const router = new express.Router();
+const express = require('express');
 const info = require("../services/Info")
+
+const router = new express.Router();
+
 
 /**
  * Get all info
@@ -12,3 +15,5 @@ router.get('/', async (req, res, next) => {
     next(err);
   }
 });
+
+module.exports = router;

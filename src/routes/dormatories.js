@@ -9,10 +9,18 @@ const router = new express.Router();
  * create Dorm.
  */
 router.post('/', async (req, res, next) => {
-  const options = {
-    token: req.header('Authorization').split(" ")[1],
-    body: req.body
-  };
+  let options
+  if (req.header('Authorization')){
+     options = {
+      token: req.header('Authorization').split(" ")[1],
+      body: req.body
+    };
+  }else{
+     options = {
+      token: "non auth",
+      body: req.body
+    };
+  }
 
   try {
     const result = await dormatories.createDorm(options);
@@ -28,7 +36,8 @@ router.post('/', async (req, res, next) => {
 router.get('/', async (req, res, next) => {
   const options = {
     name: req.query['name'],
-    city: req.query['city']
+    city: req.query['city'],
+    limit: req.query['limit']
   };
 
   try {

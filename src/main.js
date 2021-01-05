@@ -2,7 +2,6 @@
 /**
  * Module dependencies.
  */
-require('dotenv').config()
 const app = require('./api');
 const http = require('http');
 const sequelize = require('./repositories/sequalize').database;

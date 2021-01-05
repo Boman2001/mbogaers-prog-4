@@ -1,4 +1,4 @@
-const ServerError = require('../lib/error');
+const ServerError = require('../lib/error').ServerError;
 const Dorm = require('../repositories/sequalize').models.studenthome;
 const User = require('../repositories/sequalize').models.user;
 const Inhabitant = require('../repositories/sequalize').models.inhabitants;
@@ -13,21 +13,59 @@ const tokenHandler = require('../services/token')
  */
 module.exports.createDorm = async (options) => {
   if (await tokenHandler.validateToken(options.token)) {
-    const user = await tokenHandler.returnTokenUser(options.token).user;
-    const toCreate = options.body;
-    toCreate.userId = user.id;
-    const result = await Dorm.create(toCreate).then();
-    let returnVal = result.dataValues;
-    console.log(returnVal);
-
-    return {
-      status: 200,
-      data: returnVal
-    };
+    if (!validatePostal(options.body.postalCode)) {
+      return {
+        status: 400,
+        data: ServerError({
+          "name": "Validation Error",
+          "errors": [
+            {
+              "message": "postalCode Should be valid dutch postal code",
+            }
+          ]
+        })
+      };
+    } else if (!validatePhone(options.body.telephone)) {
+      return {
+        status: 400,
+        data: ServerError({
+          "name": "Validation Error",
+          "errors": [
+            {
+              "message": "Phonenumber should be a valid dutch phone number",
+            }
+          ]
+        })
+      };
+    } else {
+      try {
+        const user = await tokenHandler.returnTokenUser(options.token).user;
+        const toCreate = options.body;
+        toCreate.userId = user.id;
+        const result = await Dorm.create(toCreate).then();
+        let returnVal = result.dataValues;
+        return {
+          status: 200,
+          data: returnVal
+        };
+      } catch (e) {
+        return {
+          status: 400,
+          data: ServerError(e)
+        };
+      }
+    }
   } else {
     return {
       status: 401,
-      data: {message: 'Unauthorized'}
+      data: ServerError({
+        "name": "Authorization Error",
+        "errors": [
+          {
+            "message": "Not Logged In",
+          }
+        ]
+      })
     };
   }
 
@@ -36,11 +74,13 @@ module.exports.createDorm = async (options) => {
  * @param {Object} options
  * @param {String} options.name name of dormatory
  * @param {String} options.city place of dormatory
+ * @param {Integer} options.limit The amount of dorms to get
  * @throws {Error}
  * @return {Promise}
  */
 module.exports.getAllDorm = async (options) => {
   let dormatories;
+
   if (options.name && options.city) {
     dormatories = Dorm.findAll({where: {name: options.name, city: options.city}});
   } else if (options.name) {
@@ -51,16 +91,36 @@ module.exports.getAllDorm = async (options) => {
     dormatories = Dorm.findAll();
   }
   const result = await dormatories.then();
-  if (result.length > 0) {
+  if (options.limit) {
+    result.length = options.limit
     return {
       status: 200,
       data: result
     };
   } else {
-    return {
-      status: 404,
-      data: "No dormatories match your query"
-    };
+    if (result.length > 0) {
+      return {
+        status: 200,
+        data: result
+      };
+    } else {
+      return {
+        status: 404,
+        data: ServerError({
+          "name": "Search Error",
+          "errors": [
+            {
+              "message": {
+                "message": "No results match your query cant find",
+                "query" : options,
+              }
+            }
+
+          ]
+        })
+      };
+    }
+
   }
 
 
@@ -83,7 +143,7 @@ module.exports.getDormDetail = async (options) => {
   } else {
     return {
       status: 404,
-      data: {error:"No dormatories match your query"}
+      data: {error: "No dormatories match your query"}
     };
   }
 
@@ -215,6 +275,13 @@ module.exports.registerToDorm = async (options) => {
   }
 };
 
+function validatePhone(input) {
+  const regex = /^((\+|00)?31|0(?!0))(\d{9})$/;
+  return regex.test(input)
+}
 
-
+function validatePostal(email) {
+  let re = /^\d{4} ?[a-z]{2}$/i;
+  return re.test(email);
+}
 

@@ -1,4 +1,4 @@
-const ServerError = require('../lib/error');
+const ServerError = require('../lib/error').ServerError;
 const user = require("../repositories/sequalize").models.user;
 const bcrypt = require('bcrypt')
 const tokenHandler = require('../services/token')
@@ -9,32 +9,97 @@ const tokenHandler = require('../services/token')
  * @return {Promise}
  */
 module.exports.loginUser = async (options) => {
-  const checkUser = await user.findOne({where:{email: options.body.email}}).then();
-  console.log(checkUser);
-  if (checkUser) {
-    const result = bcrypt.compareSync(options.body.password, checkUser.password)
-    if (result) {
-      delete checkUser.dataValues.password;
-      return {
-        status: 200,
-        data: {token: tokenHandler.signToken(checkUser.dataValues),result: checkUser }
-      };
+  if (!options.body.email) {
+    return {
+      status: 400,
+      data: ServerError({
+        "name": "Validation Error",
+        "errors": [
+          {
+            "message": "Email isnt a valid email",
+          }
+        ]
+      })
+    };
+
+  } else if (!options.body.password) {
+    return {
+      status: 400,
+      data: ServerError({
+        "name": "Validation Error",
+        "errors": [
+          {
+            "message": "Password is Required",
+          }
+        ]
+      })
+    };
+  } else if (!validateEmail(options.body.email)) {
+    return {
+      status: 400,
+      data: ServerError({
+        "name": "Validation Error",
+        "errors": [
+          {
+            "message": "Email isnt a valid email",
+          }
+        ]
+      })
+    };
+
+  } else if (options.body.password.length <= 5) {
+    return {
+      status: 400,
+      data: ServerError({
+        "name": "Validation Error",
+        "errors": [
+          {
+            "message": "Password Should be longer than 5 characters",
+          }
+        ]
+      })
+    };
+  } else {
+    const checkUser = await user.findOne({where: {email: options.body.email}}).then();
+    console.log(checkUser);
+    if (checkUser) {
+      const result = bcrypt.compareSync(options.body.password, checkUser.password)
+      if (result) {
+        delete checkUser.dataValues.password;
+        return {
+          status: 200,
+          data: {token: tokenHandler.signToken(checkUser.dataValues), result: checkUser}
+        };
+      } else {
+        return {
+          status: 400,
+          data: ServerError({
+            "name": "Validation",
+            "errors": [
+              {
+                "message": "Wrong Password",
+              }
+            ]
+          })
+        }
+      }
     } else {
       return {
-        status: 422,
-        data: {message:"wrong password"}
+        status: 400,
+        data: ServerError({
+          "name": "Validation",
+          "errors": [
+            {
+              "message": "No User Found",
+            }
+          ]
+        })
       }
-    }
-  } else {
-    return {
-      status: 422,
-      data: {message:"No User Found"}
     }
   }
 };
 
 module.exports.registerUser = async (options) => {
-
   let salt = bcrypt.genSaltSync(10);
   let password = bcrypt.hashSync(options.body.password, salt,);
 
@@ -45,20 +110,53 @@ module.exports.registerUser = async (options) => {
     studentNumber: options.body.studentNumber,
     password: password
   }
-  try{
-    const result = await user.create(createUser).then();
-    let returnVal = result.dataValues;
-    delete returnVal.password;
-    console.info(returnVal);
+  if (!validateEmail(createUser.email)) {
     return {
-      status: 200,
-      data: {token: tokenHandler.signToken(returnVal), result: returnVal}
+      status: 400,
+      data: ServerError({
+        "name": "Validation Error",
+        "errors": [
+          {
+            "message": "Email isnt a valid email",
+          }
+        ]
+      })
     };
 
-  }catch (e){
+  } else if (options.body.password.length <= 5) {
     return {
-      status: 406,
-      data: e
+      status: 400,
+      data: ServerError({
+        "name": "Validation Error",
+        "errors": [
+          {
+            "message": "Password Should be longer than 5 characters",
+          }
+        ]
+      })
     };
+  } else {
+    try {
+      console.log("eeeeeeeeeeeeeeee")
+      const result = await user.create(createUser).then();
+      let returnVal = result.dataValues;
+      delete returnVal.password;
+      console.info(returnVal);
+      return {
+        status: 200,
+        data: {token: tokenHandler.signToken(returnVal), result: returnVal}
+      };
+    } catch (e) {
+      return {
+        status: 400,
+        data: ServerError(e)
+      };
+    }
   }
 }
+
+function validateEmail(email) {
+  let re = /\S+@\S+\.\S+/;
+  return re.test(email);
+}
+

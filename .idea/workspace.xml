@@ -20,8 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c9a2996-f755-4919-ae3f-555c5d3d00f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/__tests__/Auth.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/__tests__/Dorm.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db_export.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db_export.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/token.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/token.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/error.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/error.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/dormatories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/dormatories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/info.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/info.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/dormatories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/dormatories.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,17 +62,73 @@
       <recent name="C:\School\p2.2\mbogaers-prog-4\api\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.Auth Service">
-    <configuration name="Auth Service" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jest.UC-202 Overzicht van studentenhuizen">
+    <configuration name="UC-202 Overzicht van studentenhuizen" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/token.test.js" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Dorm.test.js" />
       <test-names>
-        <test-name value="Auth Service" />
+        <test-name value="UC-202 Overzicht van studentenhuizen" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="UC-202 Overzicht van studentenhuizen.TC-202-3 Toon studentenhuizen met zoekterm op niet-bestaande stad " type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Dorm.test.js" />
+      <test-names>
+        <test-name value="UC-202 Overzicht van studentenhuizen" />
+        <test-name value="TC-202-3 Toon studentenhuizen met zoekterm op niet-bestaande stad " />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="UC-202 Overzicht van studentenhuizen.TC-202-4 Toon studentenhuizen met zoekterm op niet-bestaande naam " type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Dorm.test.js" />
+      <test-names>
+        <test-name value="UC-202 Overzicht van studentenhuizen" />
+        <test-name value="TC-202-4 Toon studentenhuizen met zoekterm op niet-bestaande naam " />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="UC-202 Overzicht van studentenhuizen.TC-202-5 Toon studentenhuizen met zoekterm op bestaande stad " type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Dorm.test.js" />
+      <test-names>
+        <test-name value="UC-202 Overzicht van studentenhuizen" />
+        <test-name value="TC-202-5 Toon studentenhuizen met zoekterm op bestaande stad " />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="UC-202 Overzicht van studentenhuizen.TC-202-6 Toon studentenhuizen met zoekterm op bestaande naam" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Dorm.test.js" />
+      <test-names>
+        <test-name value="UC-202 Overzicht van studentenhuizen" />
+        <test-name value="TC-202-6 Toon studentenhuizen met zoekterm op bestaande naam" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -77,7 +144,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.Auth Service" />
+        <item itemvalue="Jest.UC-202 Overzicht van studentenhuizen" />
+        <item itemvalue="Jest.UC-202 Overzicht van studentenhuizen.TC-202-4 Toon studentenhuizen met zoekterm op niet-bestaande naam " />
+        <item itemvalue="Jest.UC-202 Overzicht van studentenhuizen.TC-202-6 Toon studentenhuizen met zoekterm op bestaande naam" />
+        <item itemvalue="Jest.UC-202 Overzicht van studentenhuizen.TC-202-5 Toon studentenhuizen met zoekterm op bestaande stad " />
+        <item itemvalue="Jest.UC-202 Overzicht van studentenhuizen.TC-202-3 Toon studentenhuizen met zoekterm op niet-bestaande stad " />
       </list>
     </recent_temporary>
   </component>
@@ -96,7 +167,7 @@
       <workItem from="1609153202380" duration="6740000" />
       <workItem from="1609163116041" duration="22793000" />
       <workItem from="1609258383596" duration="363000" />
-      <workItem from="1609329319879" duration="13999000" />
+      <workItem from="1609329319879" duration="34263000" />
     </task>
     <servers />
   </component>
@@ -124,29 +195,92 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="314" y="358" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609164660897" />
-    <state width="3397" height="400" key="GridCell.Tab.0.bottom" timestamp="1609258691259">
+    <state x="93" y="100" width="1534" height="1207" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1609774671919">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="400" key="GridCell.Tab.0.bottom/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609258691259" />
-    <state width="3397" height="400" key="GridCell.Tab.0.center" timestamp="1609258691259">
+    <state x="93" y="100" width="1534" height="1207" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609774671919" />
+    <state width="3397" height="470" key="GridCell.Tab.0.bottom" timestamp="1609845102321">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="400" key="GridCell.Tab.0.center/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609258691259" />
-    <state width="3397" height="400" key="GridCell.Tab.0.left" timestamp="1609258691259">
+    <state width="3397" height="470" key="GridCell.Tab.0.bottom/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609845102321" />
+    <state width="3397" height="470" key="GridCell.Tab.0.center" timestamp="1609845102321">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="400" key="GridCell.Tab.0.left/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609258691259" />
-    <state width="3397" height="400" key="GridCell.Tab.0.right" timestamp="1609258691259">
+    <state width="3397" height="470" key="GridCell.Tab.0.center/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609845102321" />
+    <state width="3397" height="470" key="GridCell.Tab.0.left" timestamp="1609845102321">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="400" key="GridCell.Tab.0.right/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609258691259" />
+    <state width="3397" height="470" key="GridCell.Tab.0.left/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609845102321" />
+    <state width="3397" height="470" key="GridCell.Tab.0.right" timestamp="1609845102321">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="3397" height="470" key="GridCell.Tab.0.right/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609845102321" />
+    <state width="1674" height="491" key="GridCell.Tab.1.bottom" timestamp="1609780443263">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="491" key="GridCell.Tab.1.bottom/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609780443263" />
+    <state width="1674" height="491" key="GridCell.Tab.1.center" timestamp="1609780443263">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="491" key="GridCell.Tab.1.center/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609780443263" />
+    <state width="1674" height="491" key="GridCell.Tab.1.left" timestamp="1609780443263">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="491" key="GridCell.Tab.1.left/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609780443263" />
+    <state width="1674" height="491" key="GridCell.Tab.1.right" timestamp="1609780443263">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="491" key="GridCell.Tab.1.right/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609780443263" />
+    <state width="1674" height="491" key="GridCell.Tab.2.bottom" timestamp="1609780443264">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="491" key="GridCell.Tab.2.bottom/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609780443264" />
+    <state width="1674" height="491" key="GridCell.Tab.2.center" timestamp="1609780443263">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="491" key="GridCell.Tab.2.center/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609780443263" />
+    <state width="1674" height="491" key="GridCell.Tab.2.left" timestamp="1609780443263">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="491" key="GridCell.Tab.2.left/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609780443263" />
+    <state width="1674" height="491" key="GridCell.Tab.2.right" timestamp="1609780443264">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="491" key="GridCell.Tab.2.right/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609780443264" />
+    <state width="1674" height="491" key="GridCell.Tab.3.bottom" timestamp="1609780443264">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="491" key="GridCell.Tab.3.bottom/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609780443264" />
+    <state width="1674" height="491" key="GridCell.Tab.3.center" timestamp="1609780443264">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="491" key="GridCell.Tab.3.center/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609780443264" />
+    <state width="1674" height="491" key="GridCell.Tab.3.left" timestamp="1609780443264">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="491" key="GridCell.Tab.3.left/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609780443264" />
+    <state width="1674" height="491" key="GridCell.Tab.3.right" timestamp="1609780443264">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="491" key="GridCell.Tab.3.right/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609780443264" />
     <state x="1029" y="207" key="SettingsEditor" timestamp="1609333378287">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="1029" y="207" key="SettingsEditor/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609333378287" />
+    <state x="412" y="432" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1609774074338">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="412" y="432" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609774074338" />
     <state x="516" y="334" key="run.anything.popup" timestamp="1609336060072">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="516" y="334" key="run.anything.popup/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609336060072" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="JavaScriptTestRunnerJest">
+        <watch expression="err.message" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

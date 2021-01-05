@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -15,7 +16,7 @@ app.use('/api/dormatories', require('./routes/dormatories'));
 app.use('/api/Meals', require('./routes/Meals'));
 app.use('/api/register', require('./routes/register'));
 app.use('/api/login', require('./routes/login'));
-app.use('/api/info', require('./routes/Info'));
+app.use('/api/info', require('./routes/info'));
 
 // catch 404
 app.use((req, res, next) => {

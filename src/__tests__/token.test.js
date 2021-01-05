@@ -1,5 +1,5 @@
 const {signToken,returnTokenUser, validateToken} = require("../services/token");
-describe("Auth Service", () => {
+describe("Token Service", () => {
   test("Should verify Valid Token", () => {
     const token = signToken({name:"test"})
     let result;

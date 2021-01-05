@@ -1,10 +1,14 @@
-class ServerError extends Error {
-  constructor (...args) {
-    super(...args);
-    Error.captureStackTrace(this, ServerError);
-    this.status = args[0].status;
-    this.error = args[0].error;
+module.exports.ServerError = (...args) => {
+  this.name = args[0].name
+  this.errors = args[0].errors
+  this.timestamp = new Date();
+  if (this.errors){
+    for (let i = 0; i < this.errors.length; i++) {
+      this.errors[i] = (({message}) => ({message}))(this.errors[i]);
+    }
+
   }
+
+  return this;
 }
 
-module.exports = ServerError;
