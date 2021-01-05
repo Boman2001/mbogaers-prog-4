@@ -68,10 +68,18 @@ router.get('/:id', async (req, res, next) => {
  * Deletes an existing Dorm.
  */
 router.delete('/:id', async (req, res, next) => {
-  const options = {
-    id: req.params['id'],
-    token: req.header('Authorization').split(" ")[1]
-  };
+  let options;
+  if (req.header('Authorization')){
+    options = {
+      token: req.header('Authorization').split(" ")[1],
+      id: req.params['id']
+    };
+  }else{
+    options = {
+      token: "non auth",
+      id: req.params['id']
+    };
+  }
 
   try {
     const result = await dormatories.deleteDorm(options);

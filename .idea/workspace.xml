@@ -20,18 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c9a2996-f755-4919-ae3f-555c5d3d00f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/__tests__/Auth.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__tests__/Dorm.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sonar-project.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/__tests__/Meal.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_export.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db_export.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/token.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/token.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/error.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/error.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Dorm.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Dorm.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/dormatories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/dormatories.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/info.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/info.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/dormatories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/dormatories.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +55,7 @@
       <recent name="C:\School\p2.2\mbogaers-prog-4\api\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.UC-202 Overzicht van studentenhuizen">
+  <component name="RunManager" selected="Jest.UC-204 Studentenhuis wijzigen">
     <configuration name="UC-202 Overzicht van studentenhuizen" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -76,7 +69,7 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="UC-202 Overzicht van studentenhuizen.TC-202-3 Toon studentenhuizen met zoekterm op niet-bestaande stad " type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="UC-203 Details van studentenhuis .TC-203-1 Studentenhuis-ID bestaat niet" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
@@ -85,26 +78,25 @@
       <scope-kind value="TEST" />
       <test-file value="$PROJECT_DIR$/src/__tests__/Dorm.test.js" />
       <test-names>
-        <test-name value="UC-202 Overzicht van studentenhuizen" />
-        <test-name value="TC-202-3 Toon studentenhuizen met zoekterm op niet-bestaande stad " />
+        <test-name value="UC-203 Details van studentenhuis " />
+        <test-name value="TC-203-1 Studentenhuis-ID bestaat niet" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="UC-202 Overzicht van studentenhuizen.TC-202-4 Toon studentenhuizen met zoekterm op niet-bestaande naam " type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="UC-204 Studentenhuis wijzigen" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
-      <scope-kind value="TEST" />
+      <scope-kind value="SUITE" />
       <test-file value="$PROJECT_DIR$/src/__tests__/Dorm.test.js" />
       <test-names>
-        <test-name value="UC-202 Overzicht van studentenhuizen" />
-        <test-name value="TC-202-4 Toon studentenhuizen met zoekterm op niet-bestaande naam " />
+        <test-name value="UC-204 Studentenhuis wijzigen" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="UC-202 Overzicht van studentenhuizen.TC-202-5 Toon studentenhuizen met zoekterm op bestaande stad " type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="UC-204 Studentenhuis wijzigen.TC-204-1 Verplicht veld ontbreekt " type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
@@ -113,12 +105,12 @@
       <scope-kind value="TEST" />
       <test-file value="$PROJECT_DIR$/src/__tests__/Dorm.test.js" />
       <test-names>
-        <test-name value="UC-202 Overzicht van studentenhuizen" />
-        <test-name value="TC-202-5 Toon studentenhuizen met zoekterm op bestaande stad " />
+        <test-name value="UC-204 Studentenhuis wijzigen" />
+        <test-name value="TC-204-1 Verplicht veld ontbreekt " />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="UC-202 Overzicht van studentenhuizen.TC-202-6 Toon studentenhuizen met zoekterm op bestaande naam" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="UC-204 Studentenhuis wijzigen.TC-204-2 Invalide postcode " type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
@@ -127,8 +119,8 @@
       <scope-kind value="TEST" />
       <test-file value="$PROJECT_DIR$/src/__tests__/Dorm.test.js" />
       <test-names>
-        <test-name value="UC-202 Overzicht van studentenhuizen" />
-        <test-name value="TC-202-6 Toon studentenhuizen met zoekterm op bestaande naam" />
+        <test-name value="UC-204 Studentenhuis wijzigen" />
+        <test-name value="TC-204-2 Invalide postcode " />
       </test-names>
       <method v="2" />
     </configuration>
@@ -144,11 +136,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.UC-204 Studentenhuis wijzigen" />
+        <item itemvalue="Jest.UC-204 Studentenhuis wijzigen.TC-204-2 Invalide postcode " />
+        <item itemvalue="Jest.UC-204 Studentenhuis wijzigen.TC-204-1 Verplicht veld ontbreekt " />
+        <item itemvalue="Jest.UC-203 Details van studentenhuis .TC-203-1 Studentenhuis-ID bestaat niet" />
         <item itemvalue="Jest.UC-202 Overzicht van studentenhuizen" />
-        <item itemvalue="Jest.UC-202 Overzicht van studentenhuizen.TC-202-4 Toon studentenhuizen met zoekterm op niet-bestaande naam " />
-        <item itemvalue="Jest.UC-202 Overzicht van studentenhuizen.TC-202-6 Toon studentenhuizen met zoekterm op bestaande naam" />
-        <item itemvalue="Jest.UC-202 Overzicht van studentenhuizen.TC-202-5 Toon studentenhuizen met zoekterm op bestaande stad " />
-        <item itemvalue="Jest.UC-202 Overzicht van studentenhuizen.TC-202-3 Toon studentenhuizen met zoekterm op niet-bestaande stad " />
       </list>
     </recent_temporary>
   </component>
@@ -167,7 +159,7 @@
       <workItem from="1609153202380" duration="6740000" />
       <workItem from="1609163116041" duration="22793000" />
       <workItem from="1609258383596" duration="363000" />
-      <workItem from="1609329319879" duration="34263000" />
+      <workItem from="1609329319879" duration="39589000" />
     </task>
     <servers />
   </component>
@@ -199,22 +191,22 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="93" y="100" width="1534" height="1207" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609774671919" />
-    <state width="3397" height="470" key="GridCell.Tab.0.bottom" timestamp="1609845102321">
+    <state width="1676" height="470" key="GridCell.Tab.0.bottom" timestamp="1609850520612">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="470" key="GridCell.Tab.0.bottom/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609845102321" />
-    <state width="3397" height="470" key="GridCell.Tab.0.center" timestamp="1609845102321">
+    <state width="1676" height="470" key="GridCell.Tab.0.bottom/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609850520612" />
+    <state width="1676" height="470" key="GridCell.Tab.0.center" timestamp="1609850520610">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="470" key="GridCell.Tab.0.center/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609845102321" />
-    <state width="3397" height="470" key="GridCell.Tab.0.left" timestamp="1609845102321">
+    <state width="1676" height="470" key="GridCell.Tab.0.center/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609850520610" />
+    <state width="1676" height="470" key="GridCell.Tab.0.left" timestamp="1609850520609">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="470" key="GridCell.Tab.0.left/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609845102321" />
-    <state width="3397" height="470" key="GridCell.Tab.0.right" timestamp="1609845102321">
+    <state width="1676" height="470" key="GridCell.Tab.0.left/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609850520609" />
+    <state width="1676" height="470" key="GridCell.Tab.0.right" timestamp="1609850520612">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="470" key="GridCell.Tab.0.right/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609845102321" />
+    <state width="1676" height="470" key="GridCell.Tab.0.right/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609850520612" />
     <state width="1674" height="491" key="GridCell.Tab.1.bottom" timestamp="1609780443263">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>

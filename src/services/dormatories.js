@@ -112,10 +112,9 @@ module.exports.getAllDorm = async (options) => {
             {
               "message": {
                 "message": "No results match your query cant find",
-                "query" : options,
+                "query": options,
               }
             }
-
           ]
         })
       };
@@ -143,7 +142,14 @@ module.exports.getDormDetail = async (options) => {
   } else {
     return {
       status: 404,
-      data: {error: "No dormatories match your query"}
+      data: ServerError({
+        "name": "Search Error",
+        "errors": [
+          {
+            "message": "No results match your query cant find",
+          }
+        ]
+      })
     };
   }
 
@@ -178,7 +184,14 @@ module.exports.deleteDorm = async (options) => {
   } else {
     return {
       status: 404,
-      data: {message: "No dormatories match your query"}
+      data: ServerError({
+        "name": "Search Error",
+        "errors": [
+          {
+            "message": "No results match your query cant find",
+          }
+        ]
+      })
     };
   }
 
@@ -196,38 +209,100 @@ module.exports.editDorm = async (options) => {
   const user = await tokenHandler.returnTokenUser(options.token).user;
   let toEdit = options.body;
   let dormUpdateSuccess = 0;
-  if (dormDetail) {
-    if (dormDetail.dataValues.userId === user.id) {
-      toEdit.userId = user.id;
-      dormUpdateSuccess = await Dorm.update(toEdit, {
-        where: {
-          id: options.id
-        }
-      });
-    } else {
-      return {
-        status: 401,
-        data: {message: "Unauthorized"}
-      };
-    }
-    if (dormUpdateSuccess[0] > 0) {
-      return {
-        status: 200,
-        data: toEdit
-      };
-    } else {
+  if (toEdit.hasOwnProperty("name") && toEdit.hasOwnProperty("address") && toEdit.hasOwnProperty("houseNr") && toEdit.hasOwnProperty("postalCode") && toEdit.hasOwnProperty("city") && toEdit.hasOwnProperty("telephone")) {
+    if (!validatePostal(options.body.postalCode)) {
       return {
         status: 400,
-        data: {message: "invalid Request"}
+        data: ServerError({
+          "name": "Validation Error",
+          "errors": [
+            {
+              "message": "postalCode Should be valid dutch postal code",
+            }
+          ]
+        })
       };
+    } else if (!validatePhone(options.body.telephone)) {
+      return {
+        status: 400,
+        data: ServerError({
+          "name": "Validation Error",
+          "errors": [
+            {
+              "message": "Phonenumber should be a valid dutch phone number",
+            }
+          ]
+        })
+      };
+    } else {
+      if (dormDetail) {
+        try {
+          if (dormDetail.dataValues.userId === user.id) {
+            toEdit.userId = user.id;
+            dormUpdateSuccess = await Dorm.update(toEdit, {
+              where: {
+                id: options.id
+              }
+            });
+          } else {
+            return {
+              status: 401,
+              data: ServerError({
+                "name": "Authorization Error",
+                "errors": [
+                  {
+                    "message": "Not Logged In",
+                  }
+                ]
+              })
+            };
+          }
+          if (dormUpdateSuccess[0] > 0) {
+            return {
+              status: 200,
+              data: toEdit
+            };
+          } else {
+            return {
+              status: 400,
+              data: {message: "invalid Request"}
+            };
+          }
+        } catch (e) {
+          return {
+            status: 400,
+            data: ServerError(e)
+          };
+        }
+
+      } else {
+        return {
+          status: 404,
+          data: ServerError({
+            "name": "Search Error",
+            "errors": [
+              {
+                "message": "No dormatories match your query"
+              }
+            ],
+          })
+        };
+      }
     }
   } else {
     return {
-      status: 404,
-      data: {message: "No dormatories match your query"}
+      status: 400,
+      data: ServerError({
+        "name": "SequelizeValidationError",
+        "errors": [
+          {
+            "message": "invalid object"
+          }
+        ],
+      })
     };
   }
-};
+}
 
 /**
  * @param {Object} options
