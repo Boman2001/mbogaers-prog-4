@@ -138,11 +138,20 @@ router.post('/:id/user', async (req, res, next) => {
  * create a Meal for a Dorm
  */
 router.post('/:dormId/meal', async (req, res, next) => {
-  const options = {
-    dormId: req.params['dormId'],
-    body: req.body,
-    token: req.header('Authorization').split(" ")[1]
-  };
+  let options
+  if (req.header('Authorization')){
+    options = {
+      dormId: req.params['dormId'],
+      token: req.header('Authorization').split(" ")[1],
+      body: req.body
+    };
+  }else{
+    options = {
+      dormId: req.params['dormId'],
+      token: "non auth",
+      body: req.body
+    };
+  }
 
   try {
     const result = await meals.createMeal(options);
@@ -156,10 +165,18 @@ router.post('/:dormId/meal', async (req, res, next) => {
  * Get a Meal.
  */
 router.get('/:dormId/meal', async (req, res, next) => {
-  const options = {
-    dormId: req.params['dormId'],
-    token: req.header('Authorization').split(" ")[1]
-  };
+  let options
+  if (req.header('Authorization')){
+    options = {
+      dormId: req.params['dormId'],
+      token: req.header('Authorization').split(" ")[1],
+    };
+  }else{
+    options = {
+      dormId: req.params['dormId'],
+      token: "non auth",
+    };
+  }
 
   try {
     const result = await meals.getMealOverview(options);
@@ -173,10 +190,20 @@ router.get('/:dormId/meal', async (req, res, next) => {
  * Get a Meal.
  */
 router.get('/:dormId/meal/:mealId', async (req, res, next) => {
-  const options = {
-    dormId: req.params['dormId'],
-    mealId: req.params['mealId']
-  };
+  let options
+  if (req.header('Authorization')){
+    options = {
+      dormId: req.params['dormId'],
+      token: req.header('Authorization').split(" ")[1],
+      mealId: req.params['mealId'],
+    };
+  }else{
+    options = {
+      dormId: req.params['dormId'],
+      mealId: req.params['mealId'],
+      token: "non auth",
+    };
+  }
 
   try {
     const result = await meals.getMealDetail(options);
@@ -190,12 +217,22 @@ router.get('/:dormId/meal/:mealId', async (req, res, next) => {
  * Edit a Meal.
  */
 router.put('/:dormId/meal/:mealId', async (req, res, next) => {
-  const options = {
-    dormId: req.params['dormId'],
-    mealId: req.params['mealId'],
-    body: req.body,
-    token: req.header('Authorization').split(" ")[1]
-  };
+  let options
+  if (req.header('Authorization')){
+    options = {
+      dormId: req.params['dormId'],
+      token: req.header('Authorization').split(" ")[1],
+      mealId: req.params['mealId'],
+      body: req.body
+    };
+  }else{
+    options = {
+      dormId: req.params['dormId'],
+      mealId: req.params['mealId'],
+      token: "non auth",
+      body: req.body
+    };
+  }
 
   try {
     const result = await meals.editMeal(options);
@@ -209,11 +246,20 @@ router.put('/:dormId/meal/:mealId', async (req, res, next) => {
  * delete a Meal.
  */
 router.delete('/:dormId/meal/:mealId', async (req, res, next) => {
-  const options = {
-    dormId: req.params['dormId'],
-    mealId: req.params['mealId'],
-    token: req.header('Authorization').split(" ")[1]
-  };
+  let options
+  if (req.header('Authorization')){
+    options = {
+      dormId: req.params['dormId'],
+      token: req.header('Authorization').split(" ")[1],
+      mealId: req.params['mealId'],
+    };
+  }else{
+    options = {
+      dormId: req.params['dormId'],
+      mealId: req.params['mealId'],
+      token: "non auth",
+    };
+  }
 
   try {
     const result = await meals.deleteMeal(options);
@@ -227,11 +273,20 @@ router.delete('/:dormId/meal/:mealId', async (req, res, next) => {
  * register A Participant
  */
 router.post('/:dormId/meal/:mealId/signup', async (req, res, next) => {
-  const options = {
-    dormId: req.params['dormId'],
-    mealId: req.params['mealId'],
-    token: req.header('Authorization').split(" ")[1]
-  };
+  let options
+  if (req.header('Authorization')){
+    options = {
+      dormId: req.params['dormId'],
+      token: req.header('Authorization').split(" ")[1],
+      mealId: req.params['mealId'],
+    };
+  }else{
+    options = {
+      dormId: req.params['dormId'],
+      mealId: req.params['mealId'],
+      token: "non auth",
+    };
+  }
 
   try {
     const result = await participants.registerParticipant(options);
@@ -245,11 +300,20 @@ router.post('/:dormId/meal/:mealId/signup', async (req, res, next) => {
  * deregister A Participant
  */
 router.put('/:dormId/meal/:mealId/signoff', async (req, res, next) => {
-  const options = {
-    dormId: req.params['dormId'],
-    mealId: req.params['mealId'],
-    token: req.header('Authorization').split(" ")[1]
-  };
+  let options
+  if (req.header('Authorization')){
+    options = {
+      dormId: req.params['dormId'],
+      token: req.header('Authorization').split(" ")[1],
+      mealId: req.params['mealId']
+    };
+  }else{
+    options = {
+      dormId: req.params['dormId'],
+      mealId: req.params['mealId'],
+      token: "non auth"
+    };
+  }
 
   try {
     const result = await participants.deregisterParticipant(options);

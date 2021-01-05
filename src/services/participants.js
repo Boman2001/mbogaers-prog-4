@@ -1,3 +1,4 @@
+const ServerError = require('../lib/error').ServerError;
 const Participant = require('../repositories/sequalize').models.participants;
 const Meal = require('../repositories/sequalize').models.meal;
 const Dorm = require('../repositories/sequalize').models.studenthome;
@@ -36,12 +37,26 @@ module.exports.registerParticipant = async (options) => {
         if (meal.maxParticipants < participantCount + 1) {
           return {
             status: 400,
-            data: {message: "Not enough room"}
+            data: ServerError({
+              "name": "Validation Error",
+              "errors": [
+                {
+                  "message":  "Not enough room",
+                }
+              ]
+            })
           };
         } else if (Date.parse(meal.offeredOn) < Date.now()) {
           return {
             status: 400,
-            data: {message: "Meal out of date"}
+            data: ServerError({
+              "name": "Validation Error",
+              "errors": [
+                {
+                  "message":  "Meal out of date",
+                }
+              ]
+            })
           };
         }
 
@@ -49,7 +64,14 @@ module.exports.registerParticipant = async (options) => {
     } else {
       return {
         status: 401,
-        data: {message: "Unauthorized"}
+        data: ServerError({
+          "name": "Authorization Error",
+          "errors": [
+            {
+              "message": "Not Logged In",
+            }
+          ]
+        })
       };
     }
     if (created) {
@@ -60,13 +82,27 @@ module.exports.registerParticipant = async (options) => {
     } else {
       return {
         status: 400,
-        data: {message: "invalid Request"}
+        data: ServerError({
+          "name": "Validation Error",
+          "errors": [
+            {
+              "message":  "Meal out of date",
+            }
+          ]
+        })
       };
     }
   } else {
     return {
       status: 404,
-      data: {message: "No meals match your query"}
+      data: ServerError({
+        "name": "Search Error",
+        "errors": [
+          {
+            "message": "No Meals match your query"
+          }
+        ],
+      })
     };
   }
 };
@@ -94,17 +130,32 @@ module.exports.deregisterParticipant = async (options) => {
       },
     }).then();
     if (meal && dorm && participant) {
-      removed = await Participant.destroy({
-        where: {
-          userId: user.id,
-          studenthomeId: options.dormId,
-          mealId: options.mealId
-        }
-      }).then();
+      try{
+        removed = await Participant.destroy({
+          where: {
+            userId: user.id,
+            studenthomeId: options.dormId,
+            mealId: options.mealId
+          }
+        }).then();
+      }catch (e) {
+        return {
+          status: 400,
+          data: ServerError(e)
+        };
+      }
+
     } else {
       return {
         status: 404,
-        data: {message: "No participants match your query"}
+        data: ServerError({
+          "name": "Search Error",
+          "errors": [
+            {
+              "message": "No Participants match your query"
+            }
+          ],
+        })
       };
     }
     if (removed > 0) {
@@ -115,13 +166,27 @@ module.exports.deregisterParticipant = async (options) => {
     } else {
       return {
         status: 400,
-        data: {message: "invalid Request"}
+        data: ServerError({
+          "name": "Validation Error",
+          "errors": [
+            {
+              "message": "invalid request",
+            }
+          ]
+        })
       };
     }
   } else {
     return {
       status: 401,
-      data: {message: "Unauthorized"}
+      data: ServerError({
+        "name": "Authorization Error",
+        "errors": [
+          {
+            "message": "Not Logged In",
+          }
+        ]
+      })
     };
   }
 };
@@ -141,7 +206,14 @@ module.exports.getAllParticipants = async (options) => {
   } else {
     return {
       status: 404,
-      data: {error:"No participants match your query"}
+      data: ServerError({
+        "name": "Search Error",
+        "errors": [
+          {
+            "message": "No participants match your query"
+          }
+        ],
+      })
     };
   }
 

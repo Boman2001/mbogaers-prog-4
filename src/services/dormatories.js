@@ -162,39 +162,68 @@ module.exports.getDormDetail = async (options) => {
  * @return {Promise}
  */
 module.exports.deleteDorm = async (options) => {
-  const dormDetail = await Dorm.findOne({where: {id: options.id}}).then();
-  const user = await tokenHandler.returnTokenUser(options.token).user;
-  let dormDestroySuccess = 0;
-  if (dormDetail) {
-    if (dormDetail.dataValues.userId === user.id) {
-      dormDestroySuccess = await Dorm.destroy({where: {id: options.id}}).then();
-
-    } else {
-      return {
-        status: 401,
-        data: {message: "Unauthorized"}
-      };
-    }
-    if (dormDestroySuccess > 0) {
-      return {
-        status: 200,
-        data: dormDetail
-      };
-    }
-  } else {
+  if (!tokenHandler.validateToken(options.token)) {
     return {
-      status: 404,
+      status: 401,
       data: ServerError({
-        "name": "Search Error",
+        "name": "Authorization Error",
         "errors": [
           {
-            "message": "No results match your query cant find",
+            "message": "Not Logged In",
           }
         ]
       })
-    };
-  }
+    }
+  }else {
+    const dormDetail = await Dorm.findOne({where: {id: options.id}}).then();
+    const user = await tokenHandler.returnTokenUser(options.token).user;
+    let dormDestroySuccess = 0;
+    if (dormDetail) {
+      if (dormDetail.dataValues.userId === user.id) {
+        try {
+          dormDestroySuccess = await Dorm.destroy({where: {id: options.id}}).then();
+        } catch (e) {
+          return {
+            status: 400,
+            data: ServerError({e})
+          }
 
+        }
+
+
+      } else {
+        return {
+          status: 401,
+          data: ServerError({
+            "name": "Authorization Error",
+            "errors": [
+              {
+                "message": "Not Logged In",
+              }
+            ]
+          })
+        };
+      }
+      if (dormDestroySuccess > 0) {
+        return {
+          status: 200,
+          data: dormDetail
+        };
+      }
+    } else {
+      return {
+        status: 404,
+        data: ServerError({
+          "name": "Search Error",
+          "errors": [
+            {
+              "message": "No results match your query cant find",
+            }
+          ]
+        })
+      };
+    }
+  }
 };
 
 /**
@@ -205,102 +234,116 @@ module.exports.deleteDorm = async (options) => {
  * @return {Promise}
  */
 module.exports.editDorm = async (options) => {
-  const dormDetail = await Dorm.findOne({where: {id: options.id}}).then();
-  const user = await tokenHandler.returnTokenUser(options.token).user;
-  let toEdit = options.body;
-  let dormUpdateSuccess = 0;
-  if (toEdit.hasOwnProperty("name") && toEdit.hasOwnProperty("address") && toEdit.hasOwnProperty("houseNr") && toEdit.hasOwnProperty("postalCode") && toEdit.hasOwnProperty("city") && toEdit.hasOwnProperty("telephone")) {
-    if (!validatePostal(options.body.postalCode)) {
-      return {
-        status: 400,
-        data: ServerError({
-          "name": "Validation Error",
-          "errors": [
-            {
-              "message": "postalCode Should be valid dutch postal code",
-            }
-          ]
-        })
-      };
-    } else if (!validatePhone(options.body.telephone)) {
-      return {
-        status: 400,
-        data: ServerError({
-          "name": "Validation Error",
-          "errors": [
-            {
-              "message": "Phonenumber should be a valid dutch phone number",
-            }
-          ]
-        })
-      };
-    } else {
-      if (dormDetail) {
-        try {
-          if (dormDetail.dataValues.userId === user.id) {
-            toEdit.userId = user.id;
-            dormUpdateSuccess = await Dorm.update(toEdit, {
-              where: {
-                id: options.id
-              }
-            });
-          } else {
-            return {
-              status: 401,
-              data: ServerError({
-                "name": "Authorization Error",
-                "errors": [
-                  {
-                    "message": "Not Logged In",
-                  }
-                ]
-              })
-            };
-          }
-          if (dormUpdateSuccess[0] > 0) {
-            return {
-              status: 200,
-              data: toEdit
-            };
-          } else {
-            return {
-              status: 400,
-              data: {message: "invalid Request"}
-            };
-          }
-        } catch (e) {
-          return {
-            status: 400,
-            data: ServerError(e)
-          };
-        }
-
-      } else {
-        return {
-          status: 404,
-          data: ServerError({
-            "name": "Search Error",
-            "errors": [
-              {
-                "message": "No dormatories match your query"
-              }
-            ],
-          })
-        };
-      }
-    }
-  } else {
+  if (!tokenHandler.validateToken(options.token)) {
     return {
-      status: 400,
+      status: 401,
       data: ServerError({
-        "name": "SequelizeValidationError",
+        "name": "Authorization Error",
         "errors": [
           {
-            "message": "invalid object"
+            "message": "Not Logged In",
           }
-        ],
+        ]
       })
-    };
+    }
+  }else{
+    const dormDetail = await Dorm.findOne({where: {id: options.id}}).then();
+    const user = await tokenHandler.returnTokenUser(options.token).user;
+    let toEdit = options.body;
+    let dormUpdateSuccess = 0;
+    if (toEdit.hasOwnProperty("name") && toEdit.hasOwnProperty("address") && toEdit.hasOwnProperty("houseNr") && toEdit.hasOwnProperty("postalCode") && toEdit.hasOwnProperty("city") && toEdit.hasOwnProperty("telephone")) {
+      if (!validatePostal(options.body.postalCode)) {
+        return {
+          status: 400,
+          data: ServerError({
+            "name": "Validation Error",
+            "errors": [
+              {
+                "message": "postalCode Should be valid dutch postal code",
+              }
+            ]
+          })
+        };
+      } else if (!validatePhone(options.body.telephone)) {
+        return {
+          status: 400,
+          data: ServerError({
+            "name": "Validation Error",
+            "errors": [
+              {
+                "message": "Phonenumber should be a valid dutch phone number",
+              }
+            ]
+          })
+        };
+      } else {
+        if (dormDetail) {
+          try {
+            if (dormDetail.dataValues.userId === user.id) {
+              toEdit.userId = user.id;
+              dormUpdateSuccess = await Dorm.update(toEdit, {
+                where: {
+                  id: options.id
+                }
+              });
+            } else {
+              return {
+                status: 401,
+                data: ServerError({
+                  "name": "Authorization Error",
+                  "errors": [
+                    {
+                      "message": "Not Logged In",
+                    }
+                  ]
+                })
+              };
+            }
+            if (dormUpdateSuccess[0] > 0) {
+              return {
+                status: 200,
+                data: toEdit
+              };
+            } else {
+              return {
+                status: 400,
+                data: {message: "invalid Request"}
+              };
+            }
+          } catch (e) {
+            return {
+              status: 400,
+              data: ServerError(e)
+            };
+          }
+
+        } else {
+          return {
+            status: 404,
+            data: ServerError({
+              "name": "Search Error",
+              "errors": [
+                {
+                  "message": "No dormatories match your query"
+                }
+              ],
+            })
+          };
+        }
+      }
+    } else {
+      return {
+        status: 400,
+        data: ServerError({
+          "name": "SequelizeValidationError",
+          "errors": [
+            {
+              "message": "invalid object"
+            }
+          ],
+        })
+      };
+    }
   }
 }
 
