@@ -20,7 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c9a2996-f755-4919-ae3f-555c5d3d00f5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/azure-pipelines.yml" beforeDir="false" afterPath="$PROJECT_DIR$/azure-pipelines.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db_export.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db_export.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Dorm.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Dorm.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Meal.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Meal.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Participant.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Participant.test.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,8 +156,8 @@
       <item itemvalue="Jest.UC-40x Maaltijd Detail.UC-401 Aanmelden voor maaltijd.TC-401-1 Niet ingelogd" />
       <item itemvalue="Jest.UC-40x Maaltijd Detail.UC-401 Aanmelden voor maaltijd.TC-401-2 Maaltijd bestaat niet " />
       <item itemvalue="Jest.UC-40x Maaltijd Detail.UC-401 Aanmelden voor maaltijd.TC-401-3 Succesvol aangemeld " />
-      <item itemvalue="npm.dev" />
       <item itemvalue="Jest.UC-40x Maaltijd Detail.UC-403 Lijst van deelnemers opvragen" />
+      <item itemvalue="npm.dev" />
     </list>
     <recent_temporary>
       <list>
@@ -178,6 +185,7 @@
       <workItem from="1609163116041" duration="22793000" />
       <workItem from="1609258383596" duration="363000" />
       <workItem from="1609329319879" duration="53333000" />
+      <workItem from="1609865038360" duration="1878000" />
     </task>
     <servers />
   </component>
@@ -209,22 +217,22 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="93" y="100" width="1534" height="1207" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609774671919" />
-    <state width="3397" height="470" key="GridCell.Tab.0.bottom" timestamp="1609864514291">
+    <state width="3397" height="470" key="GridCell.Tab.0.bottom" timestamp="1609865210532">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="470" key="GridCell.Tab.0.bottom/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609864514291" />
-    <state width="3397" height="470" key="GridCell.Tab.0.center" timestamp="1609864514291">
+    <state width="3397" height="470" key="GridCell.Tab.0.bottom/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609865210532" />
+    <state width="3397" height="470" key="GridCell.Tab.0.center" timestamp="1609865210532">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="470" key="GridCell.Tab.0.center/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609864514291" />
-    <state width="3397" height="470" key="GridCell.Tab.0.left" timestamp="1609864514290">
+    <state width="3397" height="470" key="GridCell.Tab.0.center/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609865210532" />
+    <state width="3397" height="470" key="GridCell.Tab.0.left" timestamp="1609865210532">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="470" key="GridCell.Tab.0.left/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609864514290" />
-    <state width="3397" height="470" key="GridCell.Tab.0.right" timestamp="1609864514291">
+    <state width="3397" height="470" key="GridCell.Tab.0.left/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609865210532" />
+    <state width="3397" height="470" key="GridCell.Tab.0.right" timestamp="1609865210532">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="3397" height="470" key="GridCell.Tab.0.right/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609864514291" />
+    <state width="3397" height="470" key="GridCell.Tab.0.right/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609865210532" />
     <state width="3397" height="491" key="GridCell.Tab.1.bottom" timestamp="1609861348077">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
@@ -281,6 +289,10 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="412" y="432" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609774074338" />
+    <state x="1427" y="433" width="585" height="534" key="find.popup" timestamp="1609865358014">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="1427" y="433" width="585" height="534" key="find.popup/-1920.348.1920.1040/0.0.3440.1400/3440.0.1920.1040@0.0.3440.1400" timestamp="1609865358014" />
     <state x="516" y="334" key="run.anything.popup" timestamp="1609336060072">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
@@ -292,31 +304,26 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/services/dormatories.js</url>
           <line>236</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/services/Meals.js</url>
           <line>31</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/__tests__/Meal.test.js</url>
           <line>5</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/services/participants.js</url>
           <line>39</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/services/participants.js</url>
           <line>15</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>

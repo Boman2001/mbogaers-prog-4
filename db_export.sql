@@ -13,8 +13,8 @@
 
 
 -- Databasestructuur van studenthome wordt geschreven
-CREATE DATABASE IF NOT EXISTS `studenthome` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `studenthome`;
+CREATE DATABASE IF NOT EXISTS `studenthomeTest` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `studenthomeTest`;
 
 -- Structuur van  tabel studenthome.inhabitants wordt geschreven
 CREATE TABLE IF NOT EXISTS `inhabitants` (
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `meal` (
   KEY `fk_meal_studentenhome` (`StudenthomeID`),
   CONSTRAINT `fK_meal_user` FOREIGN KEY (`UserID`) REFERENCES `user` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `fk_meal_studentenhome` FOREIGN KEY (`StudenthomeID`) REFERENCES `studenthome` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 -- Dumpen data van tabel studenthome.meal: ~6 rows (ongeveer)
 DELETE FROM `meal`;
@@ -65,8 +65,10 @@ INSERT INTO `meal` (`ID`, `Name`, `Description`, `Ingredients`, `Allergies`, `Cr
 	(2, 'Spaghetti', 'Spaghetti Bolognese', 'Pasta, tomatensaus, gehakt', 'Lactose', '2020-09-01', '2020-09-01', 3, 1, 1, 15),
 	(3, '<string>', '<string>', '<string>', '<string>', '2020-12-29', '2025-09-01', 55, 6, 8, 60),
 	(4, '<string>', '<string>', '<string>', '<string>', '2020-12-29', '2025-09-01', 54, 6, 8, 60),
-	(5, '<string>', '<string>', '<string>', '<string>', '2020-12-29', '2025-09-01', 55, 6, 8, 60),
-	(6, '<string>', '<string>', '<string>', '<string>', '2020-12-29', '2023-09-01', 55, 6, 8, 60);
+	(5, '46.92963632204793', '<string>', '<string>', '<string>', '2020-12-29', '2220-09-01', 55, 32, 8, 60),
+	(6, '<string>', '<string>', '<string>', '<string>', '2020-12-29', '2023-09-01', 55, 6, 8, 60),
+	(24, '33.143295667662144', '<string>', '<string>', '<string>', '2021-01-01', '2220-09-01', 55, 32, 8, 60),
+	(26, '14.932168817922776', '<string>', '<string>', '<string>', '2021-01-01', '2220-09-01', 55, 32, 8, 60);
 /*!40000 ALTER TABLE `meal` ENABLE KEYS */;
 
 -- Structuur van  tabel studenthome.participants wordt geschreven
@@ -87,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `participants` (
 DELETE FROM `participants`;
 /*!40000 ALTER TABLE `participants` DISABLE KEYS */;
 INSERT INTO `participants` (`UserID`, `StudenthomeID`, `MealID`, `SignedUpOn`) VALUES
-	(6, 8, 3, '2020-12-30');
+	(6, 8, 5, '2020-12-30');
 /*!40000 ALTER TABLE `participants` ENABLE KEYS */;
 
 -- Structuur van  tabel studenthome.studenthome wordt geschreven
@@ -104,9 +106,9 @@ CREATE TABLE IF NOT EXISTS `studenthome` (
   UNIQUE KEY `Name` (`Name`),
   KEY `fk_studenthome_user` (`UserID`),
   CONSTRAINT `fk_studenthome_user` FOREIGN KEY (`UserID`) REFERENCES `user` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=latin1;
 
--- Dumpen data van tabel studenthome.studenthome: ~11 rows (ongeveer)
+-- Dumpen data van tabel studenthome.studenthome: ~38 rows (ongeveer)
 DELETE FROM `studenthome`;
 /*!40000 ALTER TABLE `studenthome` DISABLE KEYS */;
 INSERT INTO `studenthome` (`ID`, `Name`, `Address`, `House_Nr`, `UserID`, `Postal_Code`, `Telephone`, `City`) VALUES
@@ -114,13 +116,42 @@ INSERT INTO `studenthome` (`ID`, `Name`, `Address`, `House_Nr`, `UserID`, `Posta
 	(2, 'Haagdijk 23', 'Haagdijk', 4, 1, '4706RX', '061234567891', 'Breda'),
 	(3, 'Den Hout', 'Lovensdijkstraat', 61, 1, '4706RX', '061234567891', 'Den Hout'),
 	(4, '2', 'Langendijk', 63, 6, '4706RX', '061234567891', 'Breda'),
-	(5, 'Lovensdijk', 'Lovensdijkstraat', 62, 1, '4706RX', '061234567891', 'Breda'),
-	(8, '<string>', '<string>', 93, 6, '<string>', '<string>', '<email>'),
+	(5, '26.51981675825892', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(8, '<string>', '<string>', 93, 32, '<string>', '<string>', '<email>'),
 	(9, '1', '<string>', 6, 32, '<string>', '<string>', '4921ZB'),
 	(10, '11', '<string>', 6, 32, '<string>', '<string>', '<email>'),
 	(11, '111', '<string>', 6, 32, '<string>', '<string>', '<email>'),
 	(12, '1111', '<string>', 6, 32, '<string>', '<string>', '<email>'),
-	(13, '11111', '<string>', 6, 32, '4921ZB', '0031636303815', '<email>');
+	(13, '11111', '<string>', 6, 32, '4921ZB', '0031636303815', '<email>'),
+	(15, '48.92342779474098', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(16, '33.88346841323835', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(17, '22.21451616250204', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(19, '10.931386194485293', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(21, '29.085177365329173', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(23, '18.866745813001394', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(25, '38.7244777263134', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(27, '4.96196299085343', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(31, '36.262245035266325', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(32, '26.024192952927105', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(34, '25.788888962632317', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(36, '10.718089606322756', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(38, '18.099793797928044', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(40, '4.566307732048358', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(42, '31.622351943304672', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(44, '39.39240842056465', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(46, '34.1895602838465', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(48, '9.651790349046397', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(52, '45.62959084758575', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(56, '40.340248853265116', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(60, '29.34780685667844', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(62, '16.959994835504276', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(64, '19.36886191850529', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(66, '2.919466209767241', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(68, '5.410614566553818', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(70, '8.980704545362661', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(72, '47.83675574180217', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(99, '29.420991939836348', '<string>', 6, 32, '4921zb', '0031635343625', '<email>'),
+	(103, '6.77951921955724', '<string>', 6, 32, '4921zb', '0031635343625', '<email>');
 /*!40000 ALTER TABLE `studenthome` ENABLE KEYS */;
 
 -- Structuur van  tabel studenthome.user wordt geschreven
@@ -134,9 +165,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`ID`),
   UNIQUE KEY `Email` (`Email`),
   UNIQUE KEY `Student_Number` (`Student_Number`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=latin1;
 
--- Dumpen data van tabel studenthome.user: ~21 rows (ongeveer)
+-- Dumpen data van tabel studenthome.user: ~30 rows (ongeveer)
 DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`ID`, `First_Name`, `Last_Name`, `Email`, `Student_Number`, `Password`) VALUES
@@ -160,7 +191,26 @@ INSERT INTO `user` (`ID`, `First_Name`, `Last_Name`, `Email`, `Student_Number`, 
 	(35, 'herman', 'last', '30.69636416705296@emailors.org', '30.69636416705296', '$2b$10$lgDl9LP0bsQA/ag3BJaYu.d7l7G9Tavfukl3Ux8qbgBoalsZxpmEa'),
 	(36, 'herman', 'last', '26.058379734189664@emailors.org', '26.058379734189664', '$2b$10$FrpPs3R5KPyrAsj9Mp1h/u2iNzGEYOmcdUfhvz1ds62g4gBNfUjt2'),
 	(37, 'herman', 'last', '19.336210252589147@emailors.org', '19.336210252589147', '$2b$10$WKFx183i73u9LTXU1bRA0.oen7TpziKPHRMOsdCAp7UHbkOgWNZWe'),
-	(39, 'herman', 'last', '3.1495976990819186@emailors.org', '3.1495976990819186', '$2b$10$S.1Il6YMs3XQmYjqkrj53uke/abgaAOiva3gJmxM7Bpi4RoJgIBM.');
+	(39, 'herman', 'last', '3.1495976990819186@emailors.org', '3.1495976990819186', '$2b$10$S.1Il6YMs3XQmYjqkrj53uke/abgaAOiva3gJmxM7Bpi4RoJgIBM.'),
+	(41, 'herman', 'last', '15.624560752279493@emailors.org', '15.624560752279493', '$2b$10$Cpy2/rfRSPA.5s2KzFFqb.V6sLDKttxWaetWVx73hjLKs42kbe50i'),
+	(43, 'herman', 'last', '18.464934648393914@emailors.org', '18.464934648393914', '$2b$10$LQlF2l6tXdKndMjPKw8juuSordaI6sWno1OKoeiIBuVeV0xNXcUQG'),
+	(45, 'herman', 'last', '0.06414870306319376@emailors.org', '0.06414870306319376', '$2b$10$pZBx6J12prQM/1ujg1czsuei83Eui9t9ijTW5XwaMKkspbanQjyJ6'),
+	(47, 'herman', 'last', '6.8806968960689385@emailors.org', '6.8806968960689385', '$2b$10$ee9nII/.FDkHEVrum7/m7OMGCa7i.ZEjU/GbWlBtWmNACJCm8Qz7m'),
+	(49, 'herman', 'last', '26.10957525788291@emailors.org', '26.10957525788291', '$2b$10$h5jboxDDA1pv7IRphzoFGOfM1MhN3aGsLAs.IKVFfbtE8OY5DCivO'),
+	(51, 'herman', 'last', '45.856913864525126@emailors.org', '45.856913864525126', '$2b$10$3/CX5zq9PhkjHR6r0zlO8O68hO.9OavUywK77Kln4XII0AiF3tlSK'),
+	(53, 'herman', 'last', '1.625790027593399@emailors.org', '1.625790027593399', '$2b$10$y2OX.c6lHOGUTZkE5PJPHeKNJTwcEERJoXHadJApXO96Bn.NafJ6q'),
+	(55, 'herman', 'last', '32.49008664749834@emailors.org', '32.49008664749834', '$2b$10$J4NaIDMFybsaCHtZ63IFZulgYBgQYi81mASYpT.8/bP6iq1/GfR6a'),
+	(57, 'herman', 'last', '49.79671943241088@emailors.org', '49.79671943241088', '$2b$10$mw/OapiTTCRGgQSLpXXtqOOmR6w7GbPH3QW7eYvZV7hR2rYI6z33u'),
+	(59, 'herman', 'last', '3.1729177307074696@emailors.org', '3.1729177307074696', '$2b$10$Ohv2v9W9Et27ixqxI8ovseWQ3jMWAzkj2j6jZ4gMm5jZA0cTqd11y'),
+	(61, 'herman', 'last', '20.449901393553482@emailors.org', '20.449901393553482', '$2b$10$6TfH9TgtGOvr967buQTHxeAfIZasARn9sO24/Rz/t0lZtv9JuQcly'),
+	(64, 'herman', 'last', '45.672099362463@emailors.org', '45.672099362463', '$2b$10$a2Bq7wnzqqDrcahbDYG7juoch857/3zHSd35AC/FCB/LXVOu918Mu'),
+	(65, 'herman', 'last', '6.884959448575945@emailors.org', '6.884959448575945', '$2b$10$1/5isj2Ogi80t2YAiitoZewEnDAL3GLidshM9Y.mvlyPcT8ws4rV6'),
+	(67, 'herman', 'last', '33.60342487093637@emailors.org', '33.60342487093637', '$2b$10$WqhYdIGGIgJukYGTenrvUOxyvquxlrChH.QIgmHOjfWd0.cvdXpai'),
+	(69, 'herman', 'last', '40.0486538353078@emailors.org', '40.0486538353078', '$2b$10$byn9GXvvWxkFIrUNvtz1leYaO5JzYZ06XST2fwzurHtJBRWnsQe/a'),
+	(72, 'herman', 'last', '47.836364543335186@emailors.org', '47.836364543335186', '$2b$10$mVkLf1fOOPG8Tjz4gejaNOlQp5AXntcY5tKpkLJBVxwLV/vCp84LO'),
+	(73, 'herman', 'last', '4.517128761803779@emailors.org', '4.517128761803779', '$2b$10$IQ45AP7PktCOxyFydpiacOQcyAzHgA03y8rPlPl/C.0V4UShi2Q.6'),
+	(76, 'herman', 'last', '23.002941949625853@emailors.org', '23.002941949625853', '$2b$10$TZhiliBlYDjcyJyhKFLE0ef2Dr/ci8xjb1MRM7hk4LGr0eI79wrNa'),
+	(77, 'herman', 'last', '26.175487288004284@emailors.org', '26.175487288004284', '$2b$10$ek8KpnLgReow/XrNyTWVy.tf7oNbHtUcHdrugX2k8j5R/18aNIBr.');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 -- Structuur van  view studenthome.view_participants wordt geschreven

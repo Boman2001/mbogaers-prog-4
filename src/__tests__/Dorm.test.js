@@ -19,7 +19,7 @@ describe("UC-20x Studentenhuis", ()=>{
             result = res;
           }
         });
-      console.log(result.body);
+
       token = result.body.token;
     });
 
@@ -150,7 +150,6 @@ describe("UC-20x Studentenhuis", ()=>{
         .then(function(res){
           if (res){
             result = res;
-            console.log(res);
           }
         });
       expect(result.statusCode).toBe(200);
@@ -327,7 +326,6 @@ describe("UC-20x Studentenhuis", ()=>{
             result = res;
           }
         });
-      console.log(result.body);
       token = result.body.token;
     });
 
@@ -460,7 +458,6 @@ describe("UC-20x Studentenhuis", ()=>{
         .then(function(res){
           if (res){
             result = res;
-            console.log(res);
           }
         });
       expect(result.statusCode).toBe(200);
@@ -483,7 +480,6 @@ describe("UC-20x Studentenhuis", ()=>{
             result = res;
           }
         });
-      console.log(result.body);
       token = result.body.token;
     });
 
@@ -539,14 +535,12 @@ describe("UC-20x Studentenhuis", ()=>{
             toDelete = res.body[res.body.length -1];
           }
         });
-      console.log(toDelete)
       await supertest(app).delete("/api/dormatories/"+toDelete.id)
         .send()
         .set("Authorization", "token " + token)
         .then(function(res){
           if (res){
             result = res;
-            console.log(res);
           }
         });
       expect(result.statusCode).toBe(200);

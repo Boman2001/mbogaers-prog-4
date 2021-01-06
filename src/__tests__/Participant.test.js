@@ -17,7 +17,6 @@ describe("UC-40x Maaltijd Detail", () => {
           result = res;
         }
       });
-    console.log(result.body);
     token = result.body.token;
   });
   describe("UC-401 Aanmelden voor maaltijd", () => {

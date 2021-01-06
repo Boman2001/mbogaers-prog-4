@@ -18,7 +18,6 @@ describe("UC-30x Maaltijd", () => {
             result = res;
           }
         });
-      console.log(result.body);
       token = result.body.token;
     });
 
@@ -86,7 +85,6 @@ describe("UC-30x Maaltijd", () => {
         .then(function (res) {
           if (res) {
             result = res;
-            console.log(res);
           }
         });
       expect(result.statusCode).toBe(200);
@@ -189,7 +187,6 @@ describe("UC-30x Maaltijd", () => {
             result = res;
           }
         });
-      console.log(result.body);
       token = result.body.token;
     });
 
@@ -304,7 +301,6 @@ describe("UC-30x Maaltijd", () => {
         .then(function (res) {
           if (res) {
             result = res;
-            console.log(res);
           }
         });
       expect(result.statusCode).toBe(200);
@@ -327,7 +323,6 @@ describe("UC-30x Maaltijd", () => {
             result = res;
           }
         });
-      console.log(result.body);
       token = result.body.token;
     });
     test("TC-305-1 Verplicht veld ontbreekt ", async () => {
@@ -397,17 +392,14 @@ describe("UC-30x Maaltijd", () => {
             toDelete = res.body[res.body.length - 1];
           }
         });
-      console.log(toDelete)
       await supertest(app).delete("/api/dormatories/8/meal/" + toDelete.id)
         .send()
         .set("Authorization", "token " + token)
         .then(function (res) {
           if (res) {
             result = res;
-            console.log(res);
           }
         });
-      console.log(result.statusCode);
       expect(result.statusCode).toBe(200);
       expect(result.body.name).toBe(toDelete.name);
 
