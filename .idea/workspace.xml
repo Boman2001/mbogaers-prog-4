@@ -20,14 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c9a2996-f755-4919-ae3f-555c5d3d00f5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/azure-pipelines.yml" beforeDir="false" afterPath="$PROJECT_DIR$/azure-pipelines.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_export.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db_export.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Dorm.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Dorm.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Meal.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Meal.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Participant.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Participant.test.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,6 +179,7 @@
       <workItem from="1609258383596" duration="363000" />
       <workItem from="1609329319879" duration="53333000" />
       <workItem from="1609865038360" duration="1878000" />
+      <workItem from="1610025301489" duration="19000" />
     </task>
     <servers />
   </component>
