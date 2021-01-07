@@ -1,0 +1,35 @@
+swagger: '2.0'
+info:
+
+
+# Host is not required in the spec. Different environments (prod/dev) may use their own backend host.
+# Alternatively, different environments could use different basePaths.
+#host: backend.host:port
+host: sameneten.azurewebsites.net
+basePath: /api/
+externalDocs:
+  url: sameneten.azurewebsites.net
+  description: Find out more about this API.
+
+tags:
+
+
+# TODO: make the REST API available via HTTPS instead of HTTP.
+schemes:
+#  - http
+  - https
+
+paths:
+
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+
+security:
+  - Bearer: []
+
+# Here we define all the objects that are passed by the API. The Spac API Client will instantiate the domain objects (also for properties) if they exist (if not, you'll get a generic stdClass object with the properties).
+definitions:
+  $ref: \definitions\index.yaml

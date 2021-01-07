@@ -1,0 +1,982 @@
+swagger: '2.0'
+info:
+  title: SoombtCloob API Specification
+  version: 2.0.0
+  description: >-
+    SoombtCloob API specification.
+    See http://swagger.io/swagger-codegen/ for more info on code generation.
+    See http://swagger.io/specification/ for Swagger OpenAPI specification.
+
+
+# Host is not required in the spec. Different environments (prod/dev) may use their own backend host.
+# Alternatively, different environments could use different basePaths.
+#host: backend.host:port
+host: sameneten.azurewebsites.net
+basePath: /api/
+externalDocs:
+  url: sameneten.azurewebsites.net
+  description: Find out more about this API.
+
+tags:
+  - name: User
+    description: User
+  
+  - name: Meal
+    description: Meals
+  
+  - name: Participant
+    description: Participants
+  
+  - name: Dormatory
+    description: student homes
+
+
+# TODO: make the REST API available via HTTPS instead of HTTP.
+schemes:
+#  - http
+  - https
+
+paths:
+  "/dormatories/":
+    post:
+      tags:
+        - Dorm
+      summary: CreateDorm()
+      description: Create a Dorm.
+      operationId: CreateDorm
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+          description: name of dormatory
+  
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Dorm'
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/Dorm'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+    get:
+      tags:
+        - Dorm
+      summary: getAllDorm()
+      description: Get all Dorms.
+      operationId: getAllDorm
+      produces:
+        - application/json
+      parameters:
+        - name: name
+          in: query
+          type: string
+          description: name of dormatory
+        - name: city
+          in: query
+          type: string
+          description: place of dormatory
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Dorm'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  "/dormatories/{id}":
+    get:
+      tags:
+        - Dorm
+      summary: getDormDetail()
+      description: Get a Dorm.
+      operationId: getDormDetail
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+          description: ID of the Dorm to get.
+          x-testValue: 5
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            $ref: '#/definitions/Dorm'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+    delete:
+      tags:
+        - Dorm
+      summary: deleteDorm()
+      description: Deletes an existing Dorm.
+      operationId: deleteDorm
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the Dorm.
+          type: integer
+          x-testValue: "{{Dorms_id}}"
+      responses:
+        '204':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/Dorm'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+    put:
+      tags:
+        - Dorm
+      summary: EditDorm()
+      description: Edit a Dorm.
+      operationId: EditDorm
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the Dorm.
+          type: integer
+          x-testValue: "{{Dorms_id}}"
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Dorm'
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/Dorm'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+  "/dormatories/{id}/user":
+    post:
+      tags:
+        - Dorm
+      summary: RegisterToDorm()
+      description: Register to a Dorm.
+      operationId: RegisterToDorm
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+          description: id of dormatory
+  
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/Dorm'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+
+
+  "/Meals/{id}":
+    get:
+      tags:
+        - Meal
+      summary: getMealDetail()
+      description: Get a Meal.
+      operationId: getMealDetail
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+          description: ID of the Meal to get.
+          x-testValue: 5
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            $ref: '#/definitions/Meal'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+  "/dormatories/{dormId}/meal":
+    post:
+      tags:
+        - Meal
+      summary: createMeal
+      description: create a Meal for a Dorm
+      operationId: createMeal
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: dormId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Meal'
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/Dorm'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+    get:
+      tags:
+        - Meal
+      summary: getMealOverview()
+      description: Get a Meal.
+      operationId: getMealOverview
+      produces:
+        - application/json
+      parameters:
+        - name: dormId
+          in: path
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            $ref: '#/definitions/Meal'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+  "/dormatories/{dormId}/meal/{mealId}":
+    get:
+      tags:
+        - Meal
+      summary: editMealOverview()
+      description: Get a Meal.
+      operationId: getMealOverview
+      produces:
+        - application/json
+      parameters:
+        - name: dormId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: mealId
+          in: path
+          type: integer
+          required: true
+          description: ID of the Meal to get.
+          x-testValue: 5
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            $ref: '#/definitions/Meal'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+    put:
+      tags:
+        - Meal
+      summary: editMealOverview()
+      description: Get a Meal.
+      operationId: getMealOverview
+      produces:
+        - application/json
+      parameters:
+        - name: dormId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: mealId
+          in: path
+          type: integer
+          required: true
+          description: ID of the Meal to get.
+          x-testValue: 5
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            $ref: '#/definitions/Meal'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+    delete:
+      tags:
+        - Meal
+      summary: deleteMeal()
+      description: delete a Meal.
+      operationId: deleteMeal
+      produces:
+        - application/json
+      parameters:
+        - name: dormId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: mealId
+          in: path
+          type: integer
+          required: true
+          description: ID of the Meal to get.
+          x-testValue: 5
+      responses:
+        '204':
+          description: Successful operation.
+          schema:
+            $ref: '#/definitions/Meal'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+
+
+  "/meal/{mealId}/participants":
+    post:
+      tags:
+        - Participant
+      summary: getAllParticipant()
+      description: get All Participants
+      operationId: getAllParticipants
+      produces:
+        - application/json
+      parameters:
+        - name: mealId
+          in: path
+          type: integer
+          required: true
+          description: ID of the Meal to get.
+          x-testValue: 5
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            type: array
+            items: '#/definitions/User'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+  "/dormatories/{dormId}/meal/{mealId}/signup":
+    post:
+      tags:
+        - Participant
+      summary: registerParticipant()
+      description: register A Participant
+      operationId: registerParticipant
+      produces:
+        - application/json
+      parameters:
+        - name: dormId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: mealid
+          in: path
+          type: integer
+          required: true
+          description: ID of the Meal to get.
+          x-testValue: 5
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            type: array
+            items: '#/definitions/User'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+  "/dormatories/{dormId}/meal/{mealId}/signoff":
+    put:
+      tags:
+        - Participant
+      summary: deregisterParticipant()
+      description: deregister A Participant
+      operationId: deregisterParticipant
+      produces:
+        - application/json
+      parameters:
+        - name: dormId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: mealid
+          in: path
+          type: integer
+          required: true
+          description: ID of the Meal to get.
+          x-testValue: 5
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            type: array
+            items: '#/definitions/User'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+  "/meal/{mealId}/participants/{participantId}":
+    get:
+      tags:
+        - Participant
+      summary: getUserDetailFromMeal()
+      description: Get a User.
+      operationId: getUserDetailFromMeal
+      produces:
+        - application/json
+      parameters:
+        - name: mealId
+          in: path
+          type: integer
+          required: true
+          description: ID of the User to get.
+          x-testValue: 5
+  
+        - name: participantId
+          in: path
+          type: integer
+          required: true
+          description: ID of the User to get.
+          x-testValue: 5
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            $ref: '#/definitions/User'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+
+
+  "/Users/":
+    get:
+      tags:
+        - User
+      summary: getAllUsers()
+      description: Get all Users.
+      operationId: getAllUsers
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+  "/Users/{id}":
+    get:
+      tags:
+        - User
+      summary: getUserDetail()
+      description: Get a User.
+      operationId: getUserDetail
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+          description: ID of the User to get.
+          x-testValue: 5
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            $ref: '#/definitions/User'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+    delete:
+      tags:
+        - User
+      summary: deleteUser()
+      description: Deletes an existing User.
+      operationId: deleteUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the User.
+          type: integer
+          x-testValue: "{{Users_id}}"
+      responses:
+        '204':
+          description: Successful operation
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        '404':
+          description: Resource not found
+          schema:
+            $ref: '#/definitions/NotFoundApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+    put:
+      tags:
+        - User
+      summary: EditUser()
+      description: Edit a User.
+      operationId: EditUser
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the User.
+          type: integer
+          x-testValue: "{{Users_id}}"
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/User'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+  "/register":
+    post:
+      tags:
+        - User
+      summary: RegisterUser()
+      description: Register a User.
+      operationId: RegisterUser
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Successful operation
+          schema: String
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+  "/login":
+    post:
+      tags:
+        - User
+      summary: LoginUser()
+      description: Log a User In.
+      operationId: LoginUser
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Login'
+      responses:
+        '200':
+          description: Successful operation
+          schema: '#/definitions/Token'
+        '400':
+          description: Bad request or parameters
+          schema:
+            $ref: '#/definitions/BadRequestApiException'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ApiException'
+  
+
+
+
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+
+security:
+  - Bearer: []
+
+# Here we define all the objects that are passed by the API. The Spac API Client will instantiate the domain objects (also for properties) if they exist (if not, you'll get a generic stdClass object with the properties).
+definitions:
+  $ref: \definitions\index.yaml
+
+
+  ApiException:
+    type: object
+    properties:
+      code:
+        type: integer
+      statusCode:
+        type: integer
+      operationName:
+        type: string
+      parameters:
+        type: array
+        items:
+          type: object
+          properties:
+            key:
+              type: string
+            value:
+              type: string
+      message:
+        type: string
+      file:
+        type: string
+      line:
+        type: integer
+    required:
+      - code
+
+  BadRequestApiException:
+    allOf:
+    - $ref: '#/definitions/ApiException'
+    # No other properties!
+
+  NotFoundApiException:
+    allOf:
+    - $ref: '#/definitions/ApiException'
+    # No other properties!
+
+  User:
+    type: object
+    properties:
+      id:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      studentNumber:
+        type: string
+      email:
+        type: string
+        format: email
+      password:
+        type: string
+        minLength: 5
+    
+    # If you add a new property that's required, add it to the x-testBody property of the according post call
+    required:
+      - firstname
+      - lastname
+      - email
+      - studentnumber
+      - password
+    # master comment. hope last one
+
+
+  Login:
+    type: object
+    properties:
+      email:
+        type: string
+        format: email
+      password:
+        type: string
+        minLength: 5
+    
+    # If you add a new property that's required, add it to the x-testBody property of the according post call
+    required:
+      - email
+      - password
+    # master comment. hope last one
+
+
+  Meal:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      description:
+        type: string
+      created:
+        type: string
+        format: date-time
+      served:
+        type: string
+        format: date-time
+      price:
+        type: string
+      allergens:
+        type: string
+      ingredients:
+        type: string
+    
+    
+    # If you add a new property that's required, add it to the x-testBody property of the according post call
+    required:
+      - name
+      - lastname
+      - email
+      - studentnumber
+      - password
+    # master comment. hope last one
+
+
+  Dorm:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      address:
+        type: string
+      streetNumber:
+        type: integer
+      postalCode:
+        type: string
+      place:
+        type: string
+        format: email
+      phoneNumber:
+        type: string
+        minLength: 5
+    
+    # If you add a new property that's required, add it to the x-testBody property of the according post call
+    required:
+      - name
+      - address
+      - email
+      - streetnumber
+      - phonenumber
+    # master comment. hope last one
+
+
+  Token:
+    type: object
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      token:
+        type: string
+    

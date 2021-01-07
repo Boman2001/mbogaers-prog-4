@@ -1,0 +1,187 @@
+"/Users/":
+  get:
+    tags:
+      - User
+    summary: getAllUsers()
+    description: Get all Users.
+    operationId: getAllUsers
+    produces:
+      - application/json
+    responses:
+      '200':
+        description: Successful operation.
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/User'
+      '400':
+        description: Bad request or parameters
+        schema:
+          $ref: '#/definitions/BadRequestApiException'
+      '404':
+        description: Resource not found
+        schema:
+          $ref: '#/definitions/NotFoundApiException'
+      default:
+        description: Unexpected error
+        schema:
+          $ref: '#/definitions/ApiException'
+
+"/Users/{id}":
+  get:
+    tags:
+      - User
+    summary: getUserDetail()
+    description: Get a User.
+    operationId: getUserDetail
+    produces:
+      - application/json
+    parameters:
+      - name: id
+        in: path
+        type: integer
+        required: true
+        description: ID of the User to get.
+        x-testValue: 5
+    responses:
+      '200':
+        description: Successful operation.
+        schema:
+          $ref: '#/definitions/User'
+      '400':
+        description: Bad request or parameters
+        schema:
+          $ref: '#/definitions/BadRequestApiException'
+      '404':
+        description: Resource not found
+        schema:
+          $ref: '#/definitions/NotFoundApiException'
+      default:
+        description: Unexpected error
+        schema:
+          $ref: '#/definitions/ApiException'
+
+  delete:
+    tags:
+      - User
+    summary: deleteUser()
+    description: Deletes an existing User.
+    operationId: deleteUser
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: The ID of the User.
+        type: integer
+        x-testValue: "{{Users_id}}"
+    responses:
+      '204':
+        description: Successful operation
+      '400':
+        description: Bad request or parameters
+        schema:
+          $ref: '#/definitions/BadRequestApiException'
+      '404':
+        description: Resource not found
+        schema:
+          $ref: '#/definitions/NotFoundApiException'
+      default:
+        description: Unexpected error
+        schema:
+          $ref: '#/definitions/ApiException'
+  put:
+    tags:
+      - User
+    summary: EditUser()
+    description: Edit a User.
+    operationId: EditUser
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: The ID of the User.
+        type: integer
+        x-testValue: "{{Users_id}}"
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/User'
+    responses:
+      '200':
+        description: Successful operation
+        schema:
+          $ref: '#/definitions/User'
+      '400':
+        description: Bad request or parameters
+        schema:
+          $ref: '#/definitions/BadRequestApiException'
+      default:
+        description: Unexpected error
+        schema:
+          $ref: '#/definitions/ApiException'
+
+"/register":
+  post:
+    tags:
+      - User
+    summary: RegisterUser()
+    description: Register a User.
+    operationId: RegisterUser
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/User'
+    responses:
+      '200':
+        description: Successful operation
+        schema: String
+      '400':
+        description: Bad request or parameters
+        schema:
+          $ref: '#/definitions/BadRequestApiException'
+      default:
+        description: Unexpected error
+        schema:
+          $ref: '#/definitions/ApiException'
+
+"/login":
+  post:
+    tags:
+      - User
+    summary: LoginUser()
+    description: Log a User In.
+    operationId: LoginUser
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Login'
+    responses:
+      '200':
+        description: Successful operation
+        schema: '#/definitions/Token'
+      '400':
+        description: Bad request or parameters
+        schema:
+          $ref: '#/definitions/BadRequestApiException'
+      default:
+        description: Unexpected error
+        schema:
+          $ref: '#/definitions/ApiException'
+

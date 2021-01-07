@@ -1,0 +1,11 @@
+- name: User
+  description: User
+
+- name: Meal
+  description: Meals
+
+- name: Participant
+  description: Participants
+
+- name: Dormatory
+  description: student homes
